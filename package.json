@@ -15,6 +15,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:css": "postcss src/styles/tailwind.css -o src/styles/output.css",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -35,5 +36,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.6",
+    "postcss": "^8.3.4",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.1.4"
   }
 }
