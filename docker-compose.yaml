@@ -1,8 +1,8 @@
 version: "3.7"
 
 services:
-  firebase_react_auth:
-    container_name: undergrad
+  undergrad:
+    container_name: frontend
     build:
       context: .
       dockerfile: Dockerfile
