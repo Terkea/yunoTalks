@@ -1,5 +1,4 @@
 import loginSVG from '../img/login.svg'
-import {Link} from "react-router-dom";
 
 import {UserIcon, LockClosedIcon} from '@heroicons/react/solid'
 
