@@ -31,12 +31,12 @@ const Home = () => {
 					<div className="flex">
 						<Link to={'/login'} className="w-1/2 mr-3 ml-3 items-center justify-center px-10 py-3 border border-transparent
 						text-base font-medium rounded-md text-white bg-action hover:bg-actionH
-						md:py-4 md:text-lg md:px-10 mb-3">
+						md:py-4 md:text-lg md:px-10 mb-3 cursor-pointer">
 							Login
 						</Link>
 						<Link to={'/register'} className="w-1/2 mr-3 ml-3 items-center justify-center px-8 py-3 border border-transparent
 						text-base font-medium rounded-md text-primary bg-gray-200 hover:bg-gray-300
-						md:py-4 md:text-lg md:px-10 mb-3">
+						md:py-4 md:text-lg md:px-10 mb-3 cursor-pointer">
 							Register
 						</Link>
 					</div>
