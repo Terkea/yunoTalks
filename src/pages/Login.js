@@ -14,6 +14,7 @@ const Login = () => {
 			{/* RIGHT SIDE */}
 			<div className="lg:w-1/2 w-full flex bg-primary ">
 				<div className="m-auto lg:pl-20 lg:pr-20">
+					{/* TEXT */}
 					<div className="text-4xl lg:text-6xl text-gray-100 font-extrabold">
 						Welcome Back
 					</div>
@@ -21,9 +22,8 @@ const Login = () => {
 						Sign up to your account
 					</div>
 
-
 					<div className="mt-10">
-
+						{/* FORM */}
 						<div className="mb-2">
 							<div className="relative flex w-full flex-wrap items-stretch mb-3">
 								<span
@@ -55,7 +55,6 @@ const Login = () => {
 						hover:bg-actionH cursor-pointer">
 							SIGN UP
 						</div>
-
 
 					</div>
 				</div>

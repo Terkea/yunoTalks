@@ -91,3 +91,5 @@ https://imagecolorpicker.com/en
 main color    color: #22192a;
 call to action #f06965
 
+
+SIMILAR SVGS: https://www.freepik.com/stories
