@@ -7,8 +7,8 @@ import {UserIcon, LockClosedIcon} from '@heroicons/react/solid'
 
 
 const schema = yup.object().shape({
-	email: yup.string().email(),
-	password: yup.string().required(),
+	email: yup.string().email('Invalid email format').required('Email field required'),
+	password: yup.string().required('Password field required'),
 });
 
 const Login = () => {
@@ -17,7 +17,7 @@ const Login = () => {
 	});
 
 	const onSubmit = (data) => {
-		console.log(`DATA: ${data}`)
+		console.log(data)
 	};
 
 	return (
@@ -54,6 +54,7 @@ const Login = () => {
 									       bg-white bg-white rounded text-sm border-0 shadow outline-none 
 									       focus:outline-none focus:ring w-full pl-10
 									       ${clsx('', errors.email?.message && 'ring ring-red-500')}`}/>
+									<p className='text-red-500 mt-1'>{errors.password?.message}</p>
 								</div>
 							</div>
 
@@ -70,13 +71,14 @@ const Login = () => {
 									       bg-white bg-white rounded text-sm border-0 shadow outline-none
 									       focus:outline-none focus:ring w-full pl-10
 									       ${clsx('', errors.password?.message && 'ring ring-red-500')}`}/>
+									<p className='text-red-500 mt-1'>{errors.email?.message}</p>
 								</div>
 							</div>
 
 							{/* VALIDATION ERRORS */}
 							<div className="mb-4">
-								<p className='text-red-500'>{errors.password?.message}</p>
-								<p className='text-red-500'>{errors.email?.message}</p>
+
+
 								{/*     TODO: login validation	*/}
 							</div>
 
