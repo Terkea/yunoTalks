@@ -4,6 +4,9 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import clsx from 'clsx';
 import {UserIcon, LockClosedIcon} from '@heroicons/react/solid'
+import Modal from "../components/Modal";
+import React from "react";
+import {ModalContext} from "../providers/modalProvider";
 
 
 const schema = yup.object().shape({
@@ -19,6 +22,8 @@ const Login = () => {
 	const onSubmit = (data) => {
 		console.log(data)
 	};
+
+	const {dispatch} = React.useContext(ModalContext);
 
 	return (
 		<div className="flex h-screen">
@@ -82,7 +87,14 @@ const Login = () => {
 								{/*     TODO: login validation	*/}
 							</div>
 
-							<div className="text-gray-100 text-right text-base cursor-pointer">
+							<Modal/>
+							<div className="text-gray-100 text-right text-base cursor-pointer"
+							     onClick={() => dispatch({
+								     type: 'SET_CONTENT', payload: {
+									     content: 'it works!',
+									     title: 'Testing'
+								     }
+							     })}>
 								Forgotten password?
 							</div>
 
