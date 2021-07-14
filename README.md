@@ -93,3 +93,5 @@ call to action #f06965
 
 
 SIMILAR SVGS: https://www.freepik.com/stories
+
+maybe add more sections to the mainpage? and a wave svg 
