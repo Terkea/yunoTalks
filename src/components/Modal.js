@@ -61,7 +61,6 @@ const Modal = () => {
 										className="text-lg font-medium leading-6 text-gray-900"
 									>
 										{title.toUpperCase()}
-										<div>X</div>
 									</Dialog.Title>
 
 									<div>
