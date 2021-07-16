@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const ModalContext = React.createContext();
+const ModalContext = React.createContext({});
 
 const modalReducer = (state, action) => {
 	switch (action.type) {
