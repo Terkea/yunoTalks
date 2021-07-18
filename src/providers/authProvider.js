@@ -32,16 +32,13 @@ const authReducer = (state, action) => {
 
 /* ACTIONS */
 export const login = (email, password) => {
-	auth.signInWithEmailAndPassword(email, password).then(() => {
+	return auth.signInWithEmailAndPassword(email, password).then(() => {
 		// set up the localstorage
-	}).catch(e => {
-		console.log(e);
-		return e;
 	})
 }
 
 export const register = (email, password, nickname) => {
-	auth.createUserWithEmailAndPassword(email, password).then((res) => {
+	return auth.createUserWithEmailAndPassword(email, password).then((res) => {
 		// generate keys
 		let keys = generateKeys();
 		localStorage.setItem('key', keys.ecdh.getPrivateKey().toString('hex'))
@@ -54,32 +51,20 @@ export const register = (email, password, nickname) => {
 			.set(data)
 			.then(r => console.log(r))
 			.catch(e => console.log(e))
-	}).catch(e => {
-		console.log(e)
-		return e;
 	})
 }
 
 export const signOut = () => {
 	localStorage.removeItem('user')
-	auth.signOut().catch(e => {
-		console.log(e)
-		return e;
-	})
+	return auth.signOut()
 }
 
 export const recoverPassword = (email) => {
-	auth.sendPasswordResetEmail(email).catch(e => {
-		console.log(e)
-		return e
-	})
+	return auth.sendPasswordResetEmail(email)
 }
 
 export const updatePassword = (email, oldPassword, newPassword) => {
-	auth.currentUser?.updatePassword(newPassword).catch(e => {
-		console.log(e)
-		return e
-	})
+	return auth.currentUser?.updatePassword(newPassword)
 }
 
 export const updateAccount = (object) => {
@@ -88,11 +73,10 @@ export const updateAccount = (object) => {
 
 export const updateProfile = (object) => {
 	// TODO: update only the new data and if the object has valid values
-	firestore.collection(`profile`)
+	return firestore.collection(`profile`)
 		.doc(auth.currentUser?.uid)
 		.set(object)
 		.then(r => console.log(r))
-		.catch(e => console.log(e))
 }
 
 export const getProfile = async (uuid) => {
@@ -113,9 +97,9 @@ const AuthProvider = ({children}) => {
 	React.useEffect(() => {
 		// hotfix for the firebase.onAuthStateChanged flickering
 		if (localStorage.getItem('user')) {
-			// fetch the profile
 			// set context data
 			let user = JSON.parse(localStorage.getItem('user'))
+			// fetch the profile
 			getProfile(user.account.uid).then((profile) => {
 				dispatch({type: 'LOGIN', payload: {account: user.account, profile}})
 			})
@@ -130,18 +114,15 @@ const AuthProvider = ({children}) => {
 							profile: profile,
 							errors: [],
 						}))
-
 						// set context data
 						dispatch({
 							type: 'LOGIN',
 							payload: {account: auth.currentUser, profile: profile}
 						})
 					})
-
 				} else {
-					// get rid of the localstorage
-					dispatch({type: 'LOGOUT'})
 					signOut();
+					dispatch({type: 'LOGOUT'})
 				}
 			});
 		}

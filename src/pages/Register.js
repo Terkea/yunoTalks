@@ -1,11 +1,13 @@
 import registerSVG from "../img/register.svg";
 import {useForm} from "react-hook-form";
+import React from 'react'
 import {yupResolver} from '@hookform/resolvers/yup';
+import {useHistory} from "react-router-dom";
 import * as yup from 'yup';
 import clsx from 'clsx';
 import {LockClosedIcon, UserIcon} from "@heroicons/react/solid";
 import {Link} from 'react-router-dom'
-
+import {register as registerAccount} from "../providers/authProvider";
 
 const schema = yup.object().shape({
 	email: yup.string().email('Invalid email format').required('Email field required'),
@@ -17,13 +19,20 @@ const schema = yup.object().shape({
 
 
 const Register = () => {
-
+	const [error, setError] = React.useState("")
+	const history = useHistory();
 	const {register, handleSubmit, formState: {errors}} = useForm({
 		resolver: yupResolver(schema)
 	});
 
 	const onSubmit = (data) => {
-		console.log(data)
+		registerAccount(data.email, data.password, data.username).then(() => {
+				history.push('/')
+			})
+			.catch(e => {
+				setError(e.toString())
+			})
+
 	};
 
 	return (
@@ -54,7 +63,9 @@ const Register = () => {
 									       className={`px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative 
 									       bg-white bg-white rounded text-sm border-0 shadow outline-none 
 									       focus:outline-none focus:ring w-full pl-10
-									       ${clsx('', errors.email?.message && 'ring ring-red-500')}`}/>
+									       ${clsx('', errors.email?.message && 'ring ring-red-500')}
+			                               ${clsx('', error && 'ring ring-red-500')}`}
+									/>
 									<p className='text-red-500 mt-1'>{errors.email?.message}</p>
 								</div>
 							</div>
@@ -113,9 +124,7 @@ const Register = () => {
 
 							{/* VALIDATION ERRORS */}
 							<div className="mb-4">
-
-
-								{/*     TODO: register validation	*/}
+								<p className='text-red-500 mt-1'>{error}</p>
 							</div>
 
 							<div className="w-full flex justify-end">

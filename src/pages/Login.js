@@ -7,6 +7,8 @@ import {UserIcon, LockClosedIcon} from '@heroicons/react/solid'
 import Modal from "../components/Modal";
 import React from "react";
 import {ModalContext} from "../providers/modalProvider";
+import {login as loginAccount} from "../providers/authProvider";
+import {useHistory} from "react-router-dom";
 
 
 const schema = yup.object().shape({
@@ -15,12 +17,21 @@ const schema = yup.object().shape({
 });
 
 const Login = () => {
+	const history = useHistory();
+	const [error, setError] = React.useState("")
 	const {register, handleSubmit, formState: {errors}} = useForm({
 		resolver: yupResolver(schema)
 	});
 
 	const onSubmit = (data) => {
-		console.log(data)
+		loginAccount(data.email, data.password)
+			.then(() => {
+				history.push('/')
+			})
+			.catch(e => {
+				setError(e.toString())
+			})
+
 	};
 
 	const {dispatch} = React.useContext(ModalContext);
@@ -82,9 +93,7 @@ const Login = () => {
 
 							{/* VALIDATION ERRORS */}
 							<div className="mb-4">
-
-
-								{/*     TODO: login validation	*/}
+								<p className='text-red-500 mt-1'>{error}</p>
 							</div>
 
 							<Modal/>
