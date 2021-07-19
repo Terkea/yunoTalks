@@ -9,6 +9,7 @@ import React from "react";
 import {ModalContext} from "../providers/modalProvider";
 import {login as loginAccount} from "../providers/authProvider";
 import {useHistory} from "react-router-dom";
+import RecoverPassword from "../components/RecoverPassword";
 
 
 const schema = yup.object().shape({
@@ -56,7 +57,7 @@ const Login = () => {
 
 					<div className="mt-10">
 						{/* FORM */}
-						<form onSubmit={handleSubmit(onSubmit)}>
+						<form key={1} onSubmit={handleSubmit(onSubmit)}>
 							<div className="mb-2">
 								<div className="relative flex w-full flex-wrap items-stretch mb-3">
 								<span
@@ -100,8 +101,8 @@ const Login = () => {
 							<div className="text-gray-100 text-right text-base cursor-pointer"
 							     onClick={() => dispatch({
 								     type: 'SET_CONTENT', payload: {
-									     content: 'it works!',
-									     title: 'Testing'
+									     content: <RecoverPassword/>,
+									     title: 'Recover password'
 								     }
 							     })}>
 								Forgotten password?

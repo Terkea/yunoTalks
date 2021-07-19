@@ -26,6 +26,7 @@ const Register = () => {
 	});
 
 	const onSubmit = (data) => {
+		// TODO: #XXXX unique username
 		registerAccount(data.email, data.password, data.username).then(() => {
 				history.push('/')
 			})
