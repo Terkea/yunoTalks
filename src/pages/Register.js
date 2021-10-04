@@ -26,8 +26,8 @@ const Register = () => {
 	});
 
 	const onSubmit = (data) => {
-		// TODO: #XXXX unique username
-		registerAccount(data.email, data.password, data.username).then(() => {
+		registerAccount(data.email, data.password, data.username + "#" +
+			Math.floor(1000 + Math.random() * 9000).toString()).then(() => {
 				history.push('/')
 			})
 			.catch(e => {
