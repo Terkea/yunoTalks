@@ -532,7 +532,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 					</div>
 					<div className="flex items-center flex-row-reverse group">
-						<a
+						<p
 							className="block w-64 h-64 relative flex flex-shrink-0 max-w-xs lg:max-w-md"
 							href="#"
 						>
@@ -541,7 +541,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 								src="https://unsplash.com/photos/8--kuxbxuKU/download?force=true&w=640"
 								alt="hiking"
 							/>
-						</a>
+						</p>
 						<button
 							type="button"
 							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
