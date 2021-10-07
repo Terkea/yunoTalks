@@ -11,12 +11,12 @@ const Message = () => {
 				</div>
 				<div className="messages text-sm text-gray-700 grid grid-flow-row gap-2">
 					<div className="flex items-center group">
-						<p className="px-6 py-3 rounded-t-full rounded-r-full bg-gray-800 max-w-xs lg:max-w-md text-gray-200">
+						<p className="px-6 py-3 rounded-t-full rounded-r-full bg-chatAction max-w-xs lg:max-w-md text-gray-200">
 							Hey! How are you?
 						</p>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -31,7 +31,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -43,7 +43,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 24 24"
@@ -55,12 +55,12 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 					</div>
 					<div className="flex items-center group">
-						<p className="px-6 py-3 rounded-r-full bg-gray-800 max-w-xs lg:max-w-md text-gray-200">
+						<p className="px-6 py-3 rounded-r-full bg-chatAction max-w-xs lg:max-w-md text-gray-200">
 							Shall we go for Hiking this weekend?
 						</p>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -75,7 +75,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -87,7 +87,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 24 24"
@@ -99,7 +99,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 					</div>
 					<div className="flex items-center group">
-						<p className="px-6 py-3 rounded-b-full rounded-r-full bg-gray-800 max-w-xs lg:max-w-md text-gray-200">
+						<p className="px-6 py-3 rounded-b-full rounded-r-full bg-chatAction max-w-xs lg:max-w-md text-gray-200">
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit,
 							sed do eiusmod tempor incididunt ut labore et dolore
 							magna aliqua. Volutpat lacus laoreet non curabitur
@@ -107,7 +107,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</p>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -122,7 +122,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -134,7 +134,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 24 24"
@@ -153,12 +153,12 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 			<div className="flex flex-row justify-end">
 				<div className="messages text-sm text-white grid grid-flow-row gap-2">
 					<div className="flex items-center flex-row-reverse group">
-						<p className="px-6 py-3 rounded-t-full rounded-l-full bg-blue-700 max-w-xs lg:max-w-md">
+						<p className="px-6 py-3 rounded-t-full rounded-l-full bg-newMessage max-w-xs lg:max-w-md">
 							Hey! How are you?
 						</p>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -173,7 +173,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -185,7 +185,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 24 24"
@@ -197,12 +197,12 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 					</div>
 					<div className="flex items-center flex-row-reverse group">
-						<p className="px-6 py-3 rounded-l-full bg-blue-700 max-w-xs lg:max-w-md">
+						<p className="px-6 py-3 rounded-l-full bg-newMessage max-w-xs lg:max-w-md">
 							Shall we go for Hiking this weekend?
 						</p>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -217,7 +217,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -229,7 +229,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 24 24"
@@ -241,7 +241,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 					</div>
 					<div className="flex items-center flex-row-reverse group">
-						<p className="px-6 py-3 rounded-b-full rounded-l-full bg-blue-700 max-w-xs lg:max-w-md">
+						<p className="px-6 py-3 rounded-b-full rounded-l-full bg-newMessage max-w-xs lg:max-w-md">
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit,
 							sed do eiusmod tempor incididunt ut labore et dolore
 							magna aliqua. Volutpat lacus laoreet non curabitur
@@ -249,7 +249,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</p>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -264,7 +264,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -276,7 +276,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 24 24"
@@ -302,12 +302,12 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 				</div>
 				<div className="messages text-sm text-gray-700 grid grid-flow-row gap-2">
 					<div className="flex items-center group">
-						<p className="px-6 py-3 rounded-t-full rounded-r-full bg-gray-800 max-w-xs lg:max-w-md text-gray-200">
+						<p className="px-6 py-3 rounded-t-full rounded-r-full bg-chatAction max-w-xs lg:max-w-md text-gray-200">
 							Hey! How are you?
 						</p>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -322,7 +322,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -334,7 +334,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 24 24"
@@ -346,12 +346,12 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 					</div>
 					<div className="flex items-center group">
-						<p className="px-6 py-3 rounded-r-full bg-gray-800 max-w-xs lg:max-w-md text-gray-200">
+						<p className="px-6 py-3 rounded-r-full bg-chatAction max-w-xs lg:max-w-md text-gray-200">
 							Shall we go for Hiking this weekend?
 						</p>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -366,7 +366,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -378,7 +378,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 24 24"
@@ -390,7 +390,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 					</div>
 					<div className="flex items-center group">
-						<p className="px-6 py-3 rounded-b-full rounded-r-full bg-gray-800 max-w-xs lg:max-w-md text-gray-200">
+						<p className="px-6 py-3 rounded-b-full rounded-r-full bg-chatAction max-w-xs lg:max-w-md text-gray-200">
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit,
 							sed do eiusmod tempor incididunt ut labore et dolore
 							magna aliqua. Volutpat lacus laoreet non curabitur
@@ -398,7 +398,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</p>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -413,7 +413,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -425,7 +425,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 24 24"
@@ -444,12 +444,12 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 			<div className="flex flex-row justify-end">
 				<div className="messages text-sm text-white grid grid-flow-row gap-2">
 					<div className="flex items-center flex-row-reverse group">
-						<p className="px-6 py-3 rounded-t-full rounded-l-full bg-blue-700 max-w-xs lg:max-w-md">
+						<p className="px-6 py-3 rounded-t-full rounded-l-full bg-newMessage max-w-xs lg:max-w-md">
 							Hey! How are you?
 						</p>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -464,7 +464,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -476,7 +476,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 24 24"
@@ -488,12 +488,12 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 					</div>
 					<div className="flex items-center flex-row-reverse group">
-						<p className="px-6 py-3 rounded-l-full bg-blue-700 max-w-xs lg:max-w-md">
+						<p className="px-6 py-3 rounded-l-full bg-newMessage max-w-xs lg:max-w-md">
 							Shall we go for Hiking this weekend?
 						</p>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -508,7 +508,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -520,7 +520,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 24 24"
@@ -544,7 +544,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</p>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -559,7 +559,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -571,7 +571,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 24 24"
@@ -583,7 +583,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 					</div>
 					<div className="flex items-center flex-row-reverse group">
-						<p className="px-6 py-3 rounded-b-full rounded-l-full bg-blue-700 max-w-xs lg:max-w-md">
+						<p className="px-6 py-3 rounded-b-full rounded-l-full bg-newMessage max-w-xs lg:max-w-md">
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit,
 							sed do eiusmod tempor incididunt ut labore et dolore
 							magna aliqua. Volutpat lacus laoreet non curabitur
@@ -591,7 +591,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</p>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -606,7 +606,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 20 20"
@@ -618,7 +618,7 @@ C15.786,7.8,14.8,8.785,14.8,10s0.986,2.2,2.201,2.2S19.2,11.215,19.2,10S18.216,7.
 						</button>
 						<button
 							type="button"
-							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-gray-800 w-8 h-8 p-2"
+							className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2 block rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-700 bg-chatAction w-8 h-8 p-2"
 						>
 							<svg
 								viewBox="0 0 24 24"

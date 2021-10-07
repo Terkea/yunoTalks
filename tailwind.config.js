@@ -17,6 +17,10 @@ module.exports = {
 			action: "#f06965",
 			actionH: "#71282d",
 
+			chatBG: "#120e18",
+			chatAction: "#1f1c32",
+			chatHover: "#231834",
+			newMessage: "#4e38a1",
 
 			transparent: 'transparent',
 			current: 'currentColor',

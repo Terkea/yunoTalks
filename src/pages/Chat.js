@@ -8,7 +8,7 @@ const Chat = () => {
 	return (
 		<div>
 			{/* Messenger Clone */}
-			<div className="h-screen w-full flex antialiased text-gray-200 bg-gray-900 overflow-hidden">
+			<div className="h-screen w-full flex antialiased text-gray-200 bg-chatBG overflow-hidden">
 				<div className="flex-1 flex flex-col">
 					<div className="flex-grow flex flex-row min-h-0">
 						<div

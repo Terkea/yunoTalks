@@ -5,8 +5,7 @@ const SearchBar = () => {
 				<div className="relative">
 					<label>
 						<input
-							className="rounded-full py-2 pr-6 pl-10 w-full border border-gray-800 focus:border-gray-700
-							bg-gray-800 focus:bg-gray-900 focus:outline-none text-gray-200 focus:shadow-md transition duration-300 ease-in"
+							className="rounded-full py-2 pr-6 pl-10 w-full border border-chatAction focus:border-primary bg-chatAction focus:bg-primary focus:outline-none text-gray-200 focus:shadow-md transition duration-300 ease-in"
 							type="text"
 							placeholder="Search Messenger"
 						/>

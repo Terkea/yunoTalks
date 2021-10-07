@@ -2,7 +2,7 @@ const ChatPreview = () => {
 	return (
 		<>
 			<div
-				className="flex justify-between items-center p-3 hover:bg-gray-800 rounded-lg relative">
+				className="flex justify-between items-center p-3 hover:bg-chatAction rounded-lg relative">
 				<div className="w-16 h-16 relative flex flex-shrink-0">
 					<img
 						className="shadow-md rounded-full w-full h-full object-cover"
@@ -26,7 +26,7 @@ const ChatPreview = () => {
 			{/* OTHER VARIATIONS*/}
 			{/* UNREAD MESSAGE */}
 			<div
-				className="flex justify-between items-center p-3 hover:bg-gray-800 rounded-lg relative">
+				className="flex justify-between items-center p-3 hover:bg-chatAction rounded-lg relative">
 				<div className="w-16 h-16 relative flex flex-shrink-0">
 					<img
 						className="shadow-md rounded-full w-full h-full object-cover"
@@ -47,12 +47,12 @@ const ChatPreview = () => {
 					</div>
 				</div>
 				<div
-					className="bg-blue-700 w-3 h-3 rounded-full flex flex-shrink-0 hidden md:block group-hover:block"/>
+					className="bg-newMessage w-3 h-3 rounded-full flex flex-shrink-0 hidden md:block group-hover:block"/>
 			</div>
 
 
 			<div
-				className="flex justify-between items-center p-3 hover:bg-gray-800 rounded-lg relative">
+				className="flex justify-between items-center p-3 hover:bg-chatAction rounded-lg relative">
 				<div className="w-16 h-16 relative flex flex-shrink-0">
 					<img
 						className="shadow-md rounded-full w-full h-full object-cover"
@@ -82,7 +82,7 @@ const ChatPreview = () => {
 
 
 			<div
-				className="flex justify-between items-center p-3 hover:bg-gray-800 rounded-lg relative">
+				className="flex justify-between items-center p-3 hover:bg-chatAction rounded-lg relative">
 				<div className="w-16 h-16 relative flex flex-shrink-0">
 					<img
 						className="shadow-md rounded-full w-full h-full object-cover"
@@ -105,7 +105,7 @@ const ChatPreview = () => {
 
 
 			<div
-				className="flex justify-between items-center p-3 hover:bg-gray-800 rounded-lg relative">
+				className="flex justify-between items-center p-3 hover:bg-chatAction rounded-lg relative">
 				<div className="w-16 h-16 relative flex flex-shrink-0">
 					<img
 						className="shadow-md rounded-full w-full h-full object-cover"
@@ -131,7 +131,7 @@ const ChatPreview = () => {
 
 
 			<div
-				className="flex justify-between items-center p-3 hover:bg-gray-800 rounded-lg relative">
+				className="flex justify-between items-center p-3 hover:bg-chatAction rounded-lg relative">
 				<div className="w-16 h-16 relative flex flex-shrink-0">
 					<img
 						className="shadow-md rounded-full w-full h-full object-cover"

@@ -2,7 +2,7 @@ import FullChat from "./FullChat";
 
 const RightPanel = () => {
 	return (
-		<div className="flex flex-col flex-auto border-l border-gray-800">
+		<div className="flex flex-col flex-auto border-l border-chatAction">
 			<FullChat/>
 		</div>
 	)

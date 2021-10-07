@@ -16,7 +16,7 @@ const Branding = () => {
 			</p>
 			<p
 				href="#"
-				className="block rounded-full hover:bg-gray-700 bg-gray-800 w-10 h-10 p-2 hidden md:block group-hover:block"
+				className="block rounded-full hover:bg-gray-700 bg-chatAction w-10 h-10 p-2 hidden md:block group-hover:block"
 			>
 				<svg
 					viewBox="0 0 24 24"

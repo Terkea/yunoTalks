@@ -3,7 +3,7 @@ const ActionsPanel = () => {
 		<div className="active-users flex flex-row p-2 w-0 min-w-full">
 			<div className="text-sm text-center mr-4">
 				<button
-					className="flex flex-shrink-0 focus:outline-none block bg-gray-800 text-gray-600 rounded-full w-20 h-20"
+					className="flex flex-shrink-0 focus:outline-none block bg-chatAction text-gray-600 rounded-full w-20 h-20"
 					type="button"
 				>
 					<svg
