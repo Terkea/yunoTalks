@@ -31087,9 +31087,14 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-::-webkit-scrollbar {
-  width: 2px;
-  height: 2px;
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+}
+
+.has-tooltip:hover .tooltip {
+  visibility: visible;
+  z-index: 50
 }
 
 ::-webkit-scrollbar-button {
@@ -31097,18 +31102,17 @@ video {
   height: 0px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #2d3748;
-  border: 0px none #ffffff;
-  border-radius: 50px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #2b6cb0;
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
 }
 
 ::-webkit-scrollbar-thumb:active {
   background: #000000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4e38a1;
 }
 
 ::-webkit-scrollbar-track {
@@ -31117,8 +31121,10 @@ video {
   border-radius: 50px;
 }
 
-::-webkit-scrollbar-track:hover {
-  background: #666666;
+::-webkit-scrollbar-thumb {
+  background: #1f1c32;
+  border: 0px none #ffffff;
+  border-radius: 50px;
 }
 
 ::-webkit-scrollbar-track:active {
@@ -31129,12 +31135,16 @@ video {
   background: transparent;
 }
 
-.group:hover .group-hover\:block {
-  display: block;
+::-webkit-scrollbar-track:hover {
+  background: #666666;
 }
 
 .hover\:w-64:hover {
   width: 45%;
+}
+
+.group:hover .group-hover\:block {
+  display: block;
 }
 
 @media (min-width: 640px) {

@@ -2,9 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-::-webkit-scrollbar {
-    width: 2px;
-    height: 2px;
+.tooltip {
+    @apply invisible absolute;
+}
+
+.has-tooltip:hover .tooltip {
+    @apply visible z-50
 }
 
 ::-webkit-scrollbar-button {
@@ -12,18 +15,17 @@
     height: 0px;
 }
 
-::-webkit-scrollbar-thumb {
-    background: #2d3748;
-    border: 0px none #ffffff;
-    border-radius: 50px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #2b6cb0;
+::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
 }
 
 ::-webkit-scrollbar-thumb:active {
     background: #000000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4e38a1;
 }
 
 ::-webkit-scrollbar-track {
@@ -32,22 +34,29 @@
     border-radius: 50px;
 }
 
-::-webkit-scrollbar-track:hover {
-    background: #666666;
+::-webkit-scrollbar-thumb {
+    background: #1f1c32;
+    border: 0px none #ffffff;
+    border-radius: 50px;
 }
 
 ::-webkit-scrollbar-track:active {
     background: #333333;
+
 }
 
 ::-webkit-scrollbar-corner {
     background: transparent;
 }
 
-.group:hover .group-hover\:block {
-    display: block;
+::-webkit-scrollbar-track:hover {
+    background: #666666;
 }
 
 .hover\:w-64:hover {
     width: 45%;
+}
+
+.group:hover .group-hover\:block {
+    display: block;
 }

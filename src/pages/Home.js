@@ -1,7 +1,8 @@
+import React from 'react'
 import Background from "../img/5197264.svg";
 import Chat from "../img/Chat.svg"
-
 import {Link} from 'react-router-dom'
+
 
 const Home = () => {
 	return (
