@@ -1,7 +1,7 @@
 const SearchBar = () => {
 	return (
 		<div className="search-box p-4 flex-none">
-			<form onSubmit>
+			<form>
 				<div className="relative">
 					<label>
 						<input
