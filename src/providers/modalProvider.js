@@ -21,8 +21,10 @@ const modalReducer = (state, action) => {
 	}
 }
 
+const initialState = {isOpen: false, content: '<p>add content</p>'}
+
 const ModalProvider = ({children}) => {
-	const [state, dispatch] = React.useReducer(modalReducer, {isOpen: false, content: '<p>add me</p>'});
+	const [state, dispatch] = React.useReducer(modalReducer, initialState);
 	const value = {state, dispatch}
 	return (
 		<ModalContext.Provider value={value}>

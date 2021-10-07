@@ -1,10 +1,19 @@
+import React from 'react'
+import {RightPanelContext} from '../providers/rightPanelProvider'
 import clsx from "clsx";
 import Moment from 'react-moment';
+import FullChat from "./panels/FullChat";
 
 
-const ChatPreview = ({name, avatar, timestamp, isNewMessage}) => {
+const ChatPreview = ({name, avatar, timestamp, isNewMessage, id}) => {
+	const {dispatch} = React.useContext(RightPanelContext)
+	const changePanel = (panel) => {
+		dispatch({type: 'SET_PANEL_CONTENT', payload: {content: <FullChat/>}})
+	}
+
 	return (
 		<div
+			onClick={changePanel}
 			className="flex justify-between items-center p-3 hover:bg-chatAction rounded-lg relative">
 			<div className="w-16 h-16 relative flex flex-shrink-0">
 				<img

@@ -1,11 +1,14 @@
+import React from 'react'
 import Branding from "../components/Branding";
 import SearchBar from "../components/SearchBar";
 import ActionsPanel from "../components/ActionsPanel";
 import ChatsPanel from "../components/ChatsPanel";
 import RightPanel from "../components/RightPanel";
+import {RightPanelContext} from "../providers/rightPanelProvider";
 
 
 const Chat = () => {
+	const {state} = React.useContext(RightPanelContext)
 	return (
 		<>
 			<div>
@@ -20,7 +23,7 @@ const Chat = () => {
 								<SearchBar/>
 								<ChatsPanel/>
 							</div>
-							<RightPanel/>
+							<RightPanel panel={state.content}/>
 						</div>
 					</div>
 				</div>
