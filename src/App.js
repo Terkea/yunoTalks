@@ -6,7 +6,6 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Chat from './pages/Chat'
-import Logout from "./pages/Logout";
 import {AuthContext} from './providers/authProvider'
 
 
@@ -25,10 +24,6 @@ const App = () => {
 					<Route exact path="/register">
 						<Register/>
 					</Route>
-					<Route path="/logout">
-						<Logout/>
-					</Route>
-
 				</Switch>
 			</Router>
 		</>

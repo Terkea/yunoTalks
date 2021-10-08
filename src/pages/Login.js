@@ -9,7 +9,7 @@ import React from "react";
 import {ModalContext} from "../providers/modalProvider";
 import {login as loginAccount} from "../providers/authProvider";
 import {useHistory} from "react-router-dom";
-import RecoverPassword from "../components/RecoverPassword";
+import RecoverPassword from "../components/modals/RecoverPassword";
 
 
 const schema = yup.object().shape({
