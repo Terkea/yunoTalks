@@ -44,7 +44,7 @@ const ActionsPanel = () => {
 				onClick={() => modalContext.dispatch({
 					type: 'SET_CONTENT', payload: {
 						content: <AddFriend/>,
-						title: 'Recover password'
+						title: 'Add friend'
 					}
 				})}
 				icon={

@@ -3,11 +3,12 @@ import Branding from "../components/Branding";
 import SearchBar from "../components/SearchBar";
 import ActionsPanel from "../components/ActionsPanel";
 import ChatsPanel from "../components/ChatsPanel";
-import RightPanel from "../components/RightPanel";
 import {RightPanelContext} from "../providers/rightPanelProvider";
+import Loading from "../components/panels/Loading";
 
 
 const Chat = () => {
+	const RightPanel = React.lazy(() => import("../components/RightPanel"))
 	const {state} = React.useContext(RightPanelContext)
 	return (
 		<>
@@ -23,7 +24,9 @@ const Chat = () => {
 								<SearchBar/>
 								<ChatsPanel/>
 							</div>
-							<RightPanel panel={state.content}/>
+							<React.Suspense fallback={<Loading/>}>
+								<RightPanel panel={state.content}/>
+							</React.Suspense>
 						</div>
 					</div>
 				</div>
