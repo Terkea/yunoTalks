@@ -2,6 +2,7 @@ import React from "react";
 import {UserIcon} from "@heroicons/react/solid";
 import {recoverPassword} from "../../providers/authProvider";
 
+
 const RecoverPassword = () => {
 	const [message, setMessage] = React.useState("")
 	const [email, setEmail] = React.useState("")

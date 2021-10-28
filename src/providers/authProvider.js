@@ -59,6 +59,19 @@ export const signOut = () => {
 	return auth.signOut()
 }
 
+export const searchUserId = async (id) => {
+	const collection = await firestore.collection('profile')
+	let query = await collection.where('nickname', "==", id).get()
+
+	try {
+		return await query.docs[0].data()
+	} catch (e) {
+		// in case theres no profile with that unique nickname dont return anything
+		// console.log(e)
+		return undefined
+	}
+}
+
 export const recoverPassword = (email) => {
 	return auth.sendPasswordResetEmail(email)
 }
