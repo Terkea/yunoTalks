@@ -17,6 +17,7 @@ const AddFriend = () => {
 				type: 'friendRequest',
 				to: data.userId,
 				from: state.profile.nickname,
+				avatar: state.profile.avatar || null,
 				seen: false,
 				response: null
 			}

@@ -1,8 +1,16 @@
 import Moment from "react-moment";
 import clsx from "clsx";
+import {updateNotification} from "../utils/notification";
 
 
-const Notification = ({name, timestamp, isSeen, avatar, response}) => {
+const Notification = ({name, timestamp, isSeen, avatar, response, id}) => {
+	const AcceptFriendRequest = () => {
+		updateNotification({docId: id, type: 'acceptFriendRequest'})
+	}
+	const DeclineFriendRequest = () => {
+		updateNotification({docId: id, type: 'declineFriendRequest'})
+	}
+
 
 	return (
 		<>
@@ -25,8 +33,12 @@ const Notification = ({name, timestamp, isSeen, avatar, response}) => {
 				{response ?
 					null :
 					<>
-						<div className="p-2 text-xs rounded-lg hover:bg-green-500">Accept</div>
-						<div className="p-2 text-xs rounded-lg hover:bg-red-500">Decline</div>
+						<div className="p-2 text-xs rounded-lg hover:bg-green-500"
+						     onClick={() => AcceptFriendRequest()}>Accept
+						</div>
+						<div className="p-2 text-xs rounded-lg hover:bg-red-500"
+						     onClick={DeclineFriendRequest}>Decline
+						</div>
 					</>
 				}
 			</div>

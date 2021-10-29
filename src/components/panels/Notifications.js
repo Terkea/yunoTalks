@@ -1,8 +1,7 @@
 import PanelHeader from "../PanelHeader";
 import Notification from "../Notification";
-import {AuthContext, getProfile, getProfileByNickname} from "../../providers/authProvider";
+import {AuthContext} from "../../providers/authProvider";
 import React from 'react'
-import {getUserNotifications} from "../../utils/notification";
 import {firestore} from "../../config/firebase";
 import UserAvatar from '../../img/anonymous_user.png'
 
@@ -30,13 +29,10 @@ const Notifications = () => {
 		<>
 			<PanelHeader name="Notifications"/>
 			{notifications.map(i => {
-				return <Notification key={i.id} isSeen={false} timestamp={new Date(i.data.timestamp)}
+				return <Notification key={i.id} id={i.id} isSeen={i.data.seen} timestamp={new Date(i.data.timestamp)}
 				                     avatar={i.data.avatar || UserAvatar} name={i.data.from}
 				                     response={i.data.response}/>
 			})}
-
-			<Notification isSeen={true} timestamp={Math.round(new Date().getTime() / 1000)}
-			              avatar="https://randomuser.me/api/portraits/women/33.jpg" name="whatever#dasdas"/>
 		</>
 	)
 }

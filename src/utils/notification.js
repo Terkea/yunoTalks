@@ -9,15 +9,16 @@ export const createNotification = async (data) => {
 
 export const updateNotification = async (data) => {
 	const collection = await firestore.collection('notification')
+	const notification = await collection.doc(data.docId)
 	switch (data.type) {
 		case 'markAsSeen': {
-
+			return notification.set({seen: true}, {merge: true})
 		}
 		case 'acceptFriendRequest': {
-
+			return notification.set({seen: true, response: 'Accept'}, {merge: true})
 		}
 		case 'declineFriendRequest': {
-
+			return notification.set({seen: true, response: 'Decline'}, {merge: true})
 		}
 
 		default:

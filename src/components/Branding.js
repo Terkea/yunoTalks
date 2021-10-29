@@ -16,7 +16,7 @@ const Branding = () => {
 				>
 					<img
 						alt="#"
-						className="rounded-full w-full h-full object-cover"
+						className="rounded-full h-16"
 						src="https://avatars.githubusercontent.com/u/11928943?s=400&u=0375a0975e4fca5b6025625b89e4ccf49ee465ff&v=4"
 					/>
 				</div>
