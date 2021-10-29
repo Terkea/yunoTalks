@@ -71,7 +71,12 @@ const ActionsPanel = () => {
 				} text="Notifications"/>
 
 			<ActionButton
-				onClick={() => signOut()}
+				onClick={() => {
+					signOut()
+					dispatch({type: 'LOGOUT'})
+				}
+
+				}
 				icon={
 					<svg xmlns="http://www.w3.org/2000/svg" className="w-full h-full fill-current" viewBox="0 0 20 20"
 					     fill="currentColor">

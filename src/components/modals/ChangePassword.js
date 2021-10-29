@@ -3,6 +3,7 @@ import React from "react";
 import {useForm} from "react-hook-form";
 import * as Yup from 'yup';
 import {yupResolver} from '@hookform/resolvers/yup';
+import {updatePassword} from "../../providers/authProvider";
 
 
 const ChangePassword = () => {
@@ -26,7 +27,8 @@ const ChangePassword = () => {
 	const {errors} = formState;
 
 	const onSubmit = data => {
-		console.log(data)
+		updatePassword(data.newPassword)
+		// console.log(data.newPassword)
 	}
 
 	return (

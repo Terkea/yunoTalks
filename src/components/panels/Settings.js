@@ -1,11 +1,12 @@
 import React from 'react'
 import PanelHeader from "../PanelHeader";
-import {ModalContext} from '../../providers/modalProvider'
-import ChangePassword from "../modals/ChangePassword";
-
+import {recoverPassword} from "../../providers/authProvider";
+import {AuthContext} from "../../providers/authProvider";
 
 const Settings = () => {
-	const {dispatch} = React.useContext(ModalContext)
+	const {state} = React.useContext(AuthContext)
+	const [message, setMessage] = React.useState("")
+
 
 	return (
 		<>
@@ -43,17 +44,16 @@ const Settings = () => {
 
 					<div className="flex justify-center items-center">
 						<button
-							onClick={() => dispatch({
-								type: 'SET_CONTENT', payload: {
-									content: <ChangePassword/>,
-									title: 'Change Password'
-								}
-							})}
+							onClick={() => {
+								recoverPassword(state.account.email)
+								setMessage("An email has been send to your email address with the new password")
+							}}
 							className="bg-chatAction text-gray-100 text-center font-medium rounded-md mb-3
 								border border-transparent items-center justify-center px-8 py-3
 								hover:bg-actionH cursor-pointer">Change password
 						</button>
 					</div>
+					<p className='flex justify-center items-center text-green-500 mt-2'>{message}</p>
 				</>
 
 			</div>
