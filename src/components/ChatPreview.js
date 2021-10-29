@@ -3,7 +3,7 @@ import {RightPanelContext} from '../providers/rightPanelProvider'
 import clsx from "clsx";
 import Moment from 'react-moment';
 import FullChat from "./panels/FullChat";
-
+import UserAvatar from '../img/anonymous_user.png'
 
 const ChatPreview = ({name, avatar, timestamp, isNewMessage, id}) => {
 	const {dispatch} = React.useContext(RightPanelContext)
@@ -18,7 +18,7 @@ const ChatPreview = ({name, avatar, timestamp, isNewMessage, id}) => {
 			<div className="w-16 h-16 relative flex flex-shrink-0">
 				<img
 					className="shadow-md rounded-full w-full h-full object-cover"
-					src={avatar}
+					src={avatar || UserAvatar}
 					alt={name}
 				/>
 			</div>
