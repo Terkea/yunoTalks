@@ -76,12 +76,6 @@ export const recoverPassword = (email) => {
 	return auth.sendPasswordResetEmail(email)
 }
 
-export const updatePassword = (newPassword) => {
-	// console.log('newPassword', newPassword)
-	return auth.currentUser?.updatePassword(newPassword)
-	console.log(auth.currentUser)
-}
-
 export const updateAccount = (object) => {
 	// TODO: update email???
 }

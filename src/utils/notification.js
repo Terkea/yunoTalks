@@ -25,8 +25,8 @@ export const updateNotification = async (data) => {
 			return notification.set({seen: true}, {merge: true})
 		}
 		case 'acceptFriendRequest': {
-			return acceptFriendRequest({uid: data.uid, from: data.from, to: data.to})
-			// return notification.set({seen: true, response: 'Accept'}, {merge: true})
+			acceptFriendRequest({uid: data.uid, from: data.from, to: data.to})
+			return notification.set({seen: true, response: 'Accept'}, {merge: true})
 		}
 		case 'declineFriendRequest': {
 			return notification.set({seen: true, response: 'Decline'}, {merge: true})

@@ -22,7 +22,7 @@ const Notifications = () => {
 					}))
 				)
 			})
-	}, [])
+	}, [state.profile.nickname])
 
 
 	return (
