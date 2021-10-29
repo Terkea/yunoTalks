@@ -12,7 +12,6 @@ const Branding = () => {
 			{profile.avatar ?
 				<div
 					className="w-18 h-18 relative flex flex-shrink-0"
-					style={{filter: "invert(100%)"}}
 				>
 					<img
 						alt="#"

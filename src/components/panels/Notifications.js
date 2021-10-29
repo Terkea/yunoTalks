@@ -29,10 +29,15 @@ const Notifications = () => {
 		<>
 			<PanelHeader name="Notifications"/>
 			{notifications.map(i => {
-				return <Notification key={i.id} id={i.id} isSeen={i.data.seen} timestamp={new Date(i.data.timestamp)}
+				return <Notification key={i.id} id={i.id} uid={state.account.uid} isSeen={i.data.seen}
+				                     timestamp={new Date(i.data.timestamp)}
+				                     from={i.data.from}
+				                     to={i.data.to}
 				                     avatar={i.data.avatar || UserAvatar} name={i.data.from}
 				                     response={i.data.response}/>
 			})}
+
+			{notifications.length === 0 && <p>You have no notifications</p>}
 		</>
 	)
 }

@@ -3,12 +3,12 @@ import clsx from "clsx";
 import {updateNotification} from "../utils/notification";
 
 
-const Notification = ({name, timestamp, isSeen, avatar, response, id}) => {
+const Notification = ({name, timestamp, isSeen, avatar, response, id, uid, from, to}) => {
 	const AcceptFriendRequest = () => {
-		updateNotification({docId: id, type: 'acceptFriendRequest'})
+		updateNotification({docId: id, type: 'acceptFriendRequest', uid, from, to})
 	}
 	const DeclineFriendRequest = () => {
-		updateNotification({docId: id, type: 'declineFriendRequest'})
+		updateNotification({docId: id, type: 'declineFriendRequest', uid, from, to})
 	}
 
 

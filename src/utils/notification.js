@@ -1,4 +1,5 @@
 import {firestore} from '../config/firebase'
+import {acceptFriendRequest} from "./friend";
 
 
 export const hasUnseenNotifications = async data => {
@@ -24,7 +25,8 @@ export const updateNotification = async (data) => {
 			return notification.set({seen: true}, {merge: true})
 		}
 		case 'acceptFriendRequest': {
-			return notification.set({seen: true, response: 'Accept'}, {merge: true})
+			return acceptFriendRequest({uid: data.uid, from: data.from, to: data.to})
+			// return notification.set({seen: true, response: 'Accept'}, {merge: true})
 		}
 		case 'declineFriendRequest': {
 			return notification.set({seen: true, response: 'Decline'}, {merge: true})
