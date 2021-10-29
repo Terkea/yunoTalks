@@ -1,3 +1,5 @@
+import React from 'react'
+
 const SearchBar = () => {
 	return (
 		<div className="search-box p-4 flex-none">
