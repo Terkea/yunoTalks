@@ -95,10 +95,12 @@ export const updateProfile = (object) => {
 }
 
 export const getProfile = async (uuid) => {
-	const collectionInstance = firestore.collection('profile').doc(uuid)
-	const doc = await collectionInstance.get()
+	const collection = firestore.collection('profile').doc(uuid)
+	const doc = await collection.get()
 	return doc.data()
 }
+
+
 
 /* COMPONENT */
 
