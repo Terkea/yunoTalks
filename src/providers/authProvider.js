@@ -44,7 +44,7 @@ export const register = (email, password, nickname) => {
 		localStorage.setItem('key', keys.ecdh.getPrivateKey().toString('hex'))
 
 
-		let data = {nickname, publicKey: keys.buffer.toString('hex')}
+		let data = {friends: [], nickname, publicKey: keys.buffer.toString('hex')}
 		// create profile
 		firestore.collection(`profile`)
 			.doc(res.user.uid)
@@ -93,7 +93,6 @@ export const getProfile = async (uuid) => {
 	const doc = await collection.get()
 	return doc.data()
 }
-
 
 
 /* COMPONENT */

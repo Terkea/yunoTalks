@@ -8,7 +8,7 @@ import UserAvatar from '../img/anonymous_user.png'
 const ChatPreview = ({name, avatar, timestamp, isNewMessage, id}) => {
 	const {dispatch} = React.useContext(RightPanelContext)
 	const changePanel = (panel) => {
-		dispatch({type: 'SET_PANEL_CONTENT', payload: {content: <FullChat/>}})
+		dispatch({type: 'SET_PANEL_CONTENT', payload: {content: <FullChat name={name} avatar={avatar || UserAvatar}/>}})
 	}
 
 	return (

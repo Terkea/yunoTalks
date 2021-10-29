@@ -1,4 +1,4 @@
-const TypePanel = () => {
+const TypePanel = ({to}) => {
 	return (
 		<>
 			<div className="chat-footer flex-none">
