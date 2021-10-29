@@ -4,21 +4,27 @@ import {RightPanelContext} from '../providers/rightPanelProvider'
 import Settings from "./panels/Settings";
 import Notifications from "./panels/Notifications";
 import clsx from "clsx";
-import {signOut} from "../providers/authProvider";
+import {AuthContext, signOut} from "../providers/authProvider";
 import {ModalContext} from "../providers/modalProvider";
 import Modal from "./Modal";
 import AddFriend from "./modals/AddFriend";
+import {hasUnseenNotifications} from "../utils/notification";
 
 const ActionsPanel = () => {
 	const {dispatch} = React.useContext(RightPanelContext)
+	const {state} = React.useContext(AuthContext)
 	const modalContext = React.useContext(ModalContext)
-
+	const [newHasNotification, setHasNewNotification] = React.useState(false)
 
 	const changePanel = (panel) => {
 		dispatch({type: 'SET_PANEL_CONTENT', payload: {content: panel}})
 	}
 
-	const hasNewNotifications = true;
+	React.useEffect(() => {
+		if (state.profile.nickname !== undefined) {
+			hasUnseenNotifications({nickname: state.profile.nickname}).then(res => setHasNewNotification(res))
+		}
+	}, [state])
 
 	return (
 		<div className="flex flex-row p-2 w-0 min-w-full">
@@ -61,8 +67,8 @@ const ActionsPanel = () => {
 				icon={
 					<svg xmlns="http://www.w3.org/2000/svg" className="w-full h-full" viewBox="0 0 20 20"
 					     fill={clsx('', {
-						     '#4e38a1': hasNewNotifications,
-						     'currentColor': !hasNewNotifications
+						     '#4e38a1': newHasNotification,
+						     'currentColor': !newHasNotification
 					     })}>
 						<path
 							d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0

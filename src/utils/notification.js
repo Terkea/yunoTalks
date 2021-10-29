@@ -1,6 +1,15 @@
 import {firestore} from '../config/firebase'
 
 
+export const hasUnseenNotifications = async data => {
+	const collection = firestore.collection('notification')
+	const query = await collection.where('to', '==', data.nickname)
+		.where('seen', '==', false).get()
+
+	return query.docs.length >= 1;
+
+}
+
 export const createNotification = async (data) => {
 	const collection = await firestore.collection('notification')
 	data.timestamp = Date.now()
