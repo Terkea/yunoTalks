@@ -2,16 +2,19 @@ import React from 'react'
 import ChatPreview from "./ChatPreview";
 import {AuthContext, searchUserId} from "../providers/authProvider";
 import Loading from "./panels/Loading";
+import {SearchChatsContext} from "../providers/searchChats";
 
 
 const ChatsPanel = () => {
 	const {state} = React.useContext(AuthContext)
+	const searchContext = React.useContext(SearchChatsContext)
 	const [profiles, setProfiles] = React.useState([]);
 
 
 	React.useEffect(() => {
 		if (state.profile?.friends) {
 			state.profile.friends.map(async i => {
+				console.log(searchContext.state, 'aici');
 				setProfiles([...profiles, await searchUserId(i)])
 			})
 		}

@@ -7,7 +7,7 @@ const initialState = {
 
 const searchReducer = (state, action) => {
 	switch (action.type) {
-		case 'KEYWORD':
+		case 'UPDATE_KEYWORD':
 			return {...state, keyword: action.payload.keyword}
 		default: {
 			throw new Error(`Unhandled action type ${action.type}`)

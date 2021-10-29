@@ -4,14 +4,17 @@ import {ModalProvider} from "./providers/modalProvider";
 import App from "./App";
 import {AuthProvider} from "./providers/authProvider";
 import {RightPanelProvider} from "./providers/rightPanelProvider";
+import {SearchChatsProvider} from "./providers/searchChats";
 
 ReactDOM.render(
 	<React.StrictMode>
 		<AuthProvider>
 			<RightPanelProvider>
-				<ModalProvider>
-					<App/>
-				</ModalProvider>
+				<SearchChatsProvider>
+					<ModalProvider>
+						<App/>
+					</ModalProvider>
+				</SearchChatsProvider>
 			</RightPanelProvider>
 		</AuthProvider>
 	</React.StrictMode>,
