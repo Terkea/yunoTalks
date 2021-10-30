@@ -3,6 +3,7 @@ import ChatPreview from "./ChatPreview";
 import {AuthContext, searchUserId} from "../providers/authProvider";
 import Loading from "./panels/Loading";
 import {SearchChatsContext} from "../providers/searchChats";
+import UserAvatar from '../img/anonymous_user.png'
 
 
 const ChatsPanel = () => {
@@ -45,7 +46,7 @@ const ChatsPanel = () => {
 					{profiles.map((i) => {
 						return <ChatPreview
 							key={i.nickname}
-							avatar={i.avatar}
+							avatar={i.avatar || UserAvatar}
 							name={i.nickname}
 							timestamp={Math.round(new Date().getTime() / 1000)} isNewMessage={false}/>
 					})}
