@@ -1,6 +1,6 @@
 import {firestore} from "../config/firebase";
 import firebase from "firebase";
-import {computeKeys, encrypt} from "./e2ee";
+import {computeKeys, encrypt, uncompressPrivateKey} from "./e2ee";
 import {searchUserId} from "../providers/authProvider";
 
 
@@ -14,8 +14,9 @@ export const sendMessage = async (data) => {
 	// console.log(privateKey, publicKey)
 
 	// todo: convert the string into buffer to be able to compute the keys
-	const sharedKey = computeKeys(Buffer.from(localStorage.getItem('key')), Uint8Array.from(Buffer.from(publicKey)))
-	console.log(sharedKey)
+	// console.log(uncompressPrivateKey(privateKey))
+	// const sharedKey = computeKeys(uncompressPrivateKey(privateKey), Uint8Array.from(Buffer.from(publicKey)))
+	// console.log(sharedKey)
 
 	// in case there is a conversation already going on in
 	// between the two add the message to the array

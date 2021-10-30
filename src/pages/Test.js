@@ -1,4 +1,4 @@
-import {generateKeys, computeKeys, encrypt, decrypt, uncompressPrivateKey} from '../utils/e2ee'
+import {generateKeys, computeKeys, encrypt, decrypt, uncompressPrivateKey, hexToUint8Array} from '../utils/e2ee'
 
 
 // console.log(computeKeys(Veronica.ecdh, Marian.buffer))
@@ -17,45 +17,36 @@ export default Test;
 
 
 const Component = () => {
-	const Veronica = generateKeys()
-	const Marian = generateKeys()
-	const initialPrivateKey = generateKeys().ecdh.getPrivateKey()
-	const initialPublicKey = generateKeys().ecdh.getPublicKey()
+	const message = 'ciao'
 
-	// console.log(initialPublicKey)
-	// console.log(initialPrivateKey)
+	const Alice = generateKeys()
+	const Bob = generateKeys()
 
-	let test = generateKeys().ecdh
-	console.log(test.getPrivateKey())
-	console.log(test.getPrivateKey('hex'), 'hex')
-	console.log(uncompressPrivateKey(test.getPrivateKey('hex')), 'ECDH')
-	console.log(uncompressPrivateKey(test.getPrivateKey('hex')).getPrivateKey(), 'uncompressed')
-
-	console.log('~~~~~~~~~~~')
-	console.log(computeKeys(uncompressPrivateKey(test.getPrivateKey('hex')), test.getPublicKey()), 'sharedKey')
-	console.log(computeKeys(uncompressPrivateKey(test.getPrivateKey('hex')), Uint8Array.from(Buffer.from(test.getPublicKey()))), 'sharedKey')
-
-	// console.log(initialPrivateKey, ' initial')
-	// console.log(initialPrivateKey.toString('hex'), ' hex')
-	// // https://stackoverflow.com/a/55263004/8193864
-	// console.log(Uint8Array.from(Buffer.from(initialPrivateKey.toString('hex'), 'hex')))
+	const alicePrivateKey = Alice.ecdh.getPrivateKey().toString('hex')
+	const alicePublicKey = Alice.buffer.toString('hex')
+	const bobPrivateKey = Bob.ecdh.getPrivateKey().toString('hex')
+	const bobPublicKey = Bob.buffer.toString('hex')
 
 
-	// console.log(initialPublicKey, 'initial')
-	// console.log(initialPublicKey.toString('hex'))
-	// console.log(Uint8Array.from(Buffer.from(initialPublicKey.toString('hex'), 'hex')))
+	console.log('original')
+	console.log(Alice.ecdh)
+	console.log(Bob.buffer)
+	console.log('reconstruct')
+	console.log(uncompressPrivateKey(alicePrivateKey))
+	console.log(hexToUint8Array(bobPublicKey))
+	const sharedKeyAB = computeKeys(uncompressPrivateKey(alicePrivateKey), hexToUint8Array(bobPublicKey))
+	const sharedKeyBA = computeKeys(uncompressPrivateKey(bobPrivateKey), hexToUint8Array(alicePublicKey))
+	console.log(alicePublicKey, bobPublicKey, "\n PUBLIC KEYS")
+	console.log(bobPrivateKey, alicePrivateKey, "\n PRIVATE KEYS")
+	console.log(sharedKeyAB, 'shared key computed used alices private key and bobs public key')
+	console.log(sharedKeyBA, 'shared key computed used alices private key and bobs public key')
 
-	const phrase = "ciao bella";
+	console.log(`encrypting ${message}: ${encrypt(message, sharedKeyAB)}`)
+	console.log(`decrypting ${encrypt(message, sharedKeyAB)}: ${decrypt(encrypt(message, sharedKeyAB), sharedKeyAB)}`)
+
 	return (
 		<>
-			<p>
-				ENCRYPTED:
-				{encrypt(phrase, computeKeys(Veronica.ecdh, Marian.buffer))}
-			</p>
-			<p>
-				DECRYPTED:
-				{decrypt(encrypt(phrase, computeKeys(Veronica.ecdh, Marian.buffer)), computeKeys(Marian.ecdh, Veronica.buffer))}
-			</p>
+			<p>neat stuff happening in the console</p>
 		</>
 	)
 }

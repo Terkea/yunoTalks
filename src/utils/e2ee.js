@@ -26,6 +26,9 @@ const computeKeys = (ecdh, buffer) => {
 	return ecdh.computeSecret(buffer)
 }
 
+const hexToUint8Array = hex => {
+	return new Uint8Array(hex.match(/.{1,2}/g).map(byte => parseInt(byte, 16)));
+}
 
 const uncompressPrivateKey = hex => {
 	return crypto.createECDH(TYPE).setPrivateKey(hex, 'hex')
@@ -45,4 +48,4 @@ const decrypt = (encrypted, key) => {
 };
 
 
-export {generateKeys, computeKeys, encrypt, decrypt, uncompressPrivateKey};
+export {generateKeys, computeKeys, encrypt, decrypt, uncompressPrivateKey, hexToUint8Array};

@@ -24,6 +24,7 @@ const TypePanel = ({to}) => {
 					<div className="flex flex-row items-center p-4">
 						<div className="relative flex-grow">
 							<label>
+								{/* todo: disable autocomplete */}
 								<input {...register("message")}
 								       className="rounded-full py-2 pl-3 pr-10 w-full border border-chatAction
 										focus:border-primary bg-chatAction focus:bg-primary focus:outline-none
