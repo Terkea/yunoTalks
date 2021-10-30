@@ -2,7 +2,7 @@ import React from 'react'
 import {AuthContext} from "../providers/authProvider";
 import {useForm} from "react-hook-form";
 import {searchConversation, sendMessage} from "../utils/message";
-
+import {firestore} from "../config/firebase";
 
 const TypePanel = ({to}) => {
 	const {state} = React.useContext(AuthContext)
@@ -16,16 +16,6 @@ const TypePanel = ({to}) => {
 			})
 		}
 	}
-
-	React.useEffect(() => {
-		searchConversation({from: state.profile.nickname, to})
-	}, [])
-
-	// React.useEffect(() => {
-	// 	if (state.profile.nickname.length > 0) {
-	// 		searchConversation(state.profile.nickname)
-	// 	}
-	// }, [state])
 
 	return (
 		<>

@@ -53,16 +53,16 @@ const ChatsPanel = () => {
 
 
 					{/* INDIVIDUAL CHAT */}
-					<ChatPreview
-						avatar="https://randomuser.me/api/portraits/women/33.jpg"
-						name="Scarlett Johansson"
-						timestamp={Math.round(new Date().getTime() / 1000)} isNewMessage={false}/>
+					{/*<ChatPreview*/}
+					{/*	avatar="https://randomuser.me/api/portraits/women/33.jpg"*/}
+					{/*	name="Scarlett Johansson"*/}
+					{/*	timestamp={Math.round(new Date().getTime() / 1000)} isNewMessage={false}/>*/}
 
 
-					<ChatPreview
-						avatar="https://randomuser.me/api/portraits/men/97.jpg"
-						name="Tony Stark"
-						timestamp={1633582823} isNewMessage={true}/>
+					{/*<ChatPreview*/}
+					{/*	avatar="https://randomuser.me/api/portraits/men/97.jpg"*/}
+					{/*	name="Tony Stark"*/}
+					{/*	timestamp={1633582823} isNewMessage={true}/>*/}
 				</div>
 				:
 				<Loading/>}
