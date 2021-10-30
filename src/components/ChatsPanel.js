@@ -24,6 +24,7 @@ const ChatsPanel = () => {
 					const profile = await searchUserId(i);
 					if (profiles.length > 0) {
 						// if the profile is already in the list dont add it once again
+						// eslint-disable-next-line array-callback-return
 						profiles.map(j => {
 							if (j.nickname !== profile.nickname) {
 								setProfiles([...profiles, profile])

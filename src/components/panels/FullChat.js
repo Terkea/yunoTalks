@@ -7,7 +7,7 @@ import {firestore} from "../../config/firebase";
 import {AuthContext, searchUserId} from "../../providers/authProvider";
 import Loading from "./Loading";
 import {uid} from "uid";
-import {computeKeys, decrypt, encrypt, hexToUint8Array, uncompressPrivateKey} from "../../utils/e2ee";
+import {computeKeys, decrypt, hexToUint8Array, uncompressPrivateKey} from "../../utils/e2ee";
 
 
 const FullChat = ({name, avatar}) => {
@@ -43,7 +43,7 @@ const FullChat = ({name, avatar}) => {
 			setSharedKey(computeKeys(uncompressPrivateKey(privateKey), hexToUint8Array(publicKey)))
 		}
 		getSharedKey();
-	}, [])
+	}, [name])
 
 
 	if (conversation.conversation && sharedKey !== "") {

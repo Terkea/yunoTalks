@@ -1,6 +1,6 @@
 import {firestore} from '../config/firebase'
 import firebase from "firebase/app";
-import {encrypt, generateInitialisationVector} from "./e2ee";
+import {generateInitialisationVector} from "./e2ee";
 
 
 export const acceptFriendRequest = async (data) => {

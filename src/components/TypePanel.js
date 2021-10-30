@@ -1,12 +1,11 @@
 import React from 'react'
 import {AuthContext} from "../providers/authProvider";
 import {useForm} from "react-hook-form";
-import {searchConversation, sendMessage} from "../utils/message";
-import {firestore} from "../config/firebase";
+import { sendMessage} from "../utils/message";
 
 const TypePanel = ({to}) => {
 	const {state} = React.useContext(AuthContext)
-	const {register, handleSubmit, reset, formState: {errors}} = useForm();
+	const {register, handleSubmit, reset} = useForm();
 
 
 	const submit = data => {

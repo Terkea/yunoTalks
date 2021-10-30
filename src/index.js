@@ -5,7 +5,7 @@ import App from "./App";
 import {AuthProvider} from "./providers/authProvider";
 import {RightPanelProvider} from "./providers/rightPanelProvider";
 import {SearchChatsProvider} from "./providers/searchChats";
-import Test from "./pages/Test";
+
 
 ReactDOM.render(
 	<React.StrictMode>
