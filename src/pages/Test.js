@@ -42,7 +42,7 @@ const Component = () => {
 	console.log(sharedKeyBA, 'shared key computed used alices private key and bobs public key')
 
 	console.log(`encrypting ${message}: ${encrypt(message, sharedKeyAB)}`)
-	console.log(`decrypting ${encrypt(message, sharedKeyAB)}: ${decrypt(encrypt(message, sharedKeyAB), sharedKeyAB)}`)
+	console.log(`decrypting ${encrypt(message, sharedKeyAB)}: ${decrypt(encrypt(message, sharedKeyAB), sharedKeyBA)}`)
 
 	return (
 		<>

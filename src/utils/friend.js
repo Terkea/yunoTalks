@@ -1,5 +1,6 @@
 import {firestore} from '../config/firebase'
 import firebase from "firebase/app";
+import {encrypt, generateInitialisationVector} from "./e2ee";
 
 
 export const acceptFriendRequest = async (data) => {
@@ -11,6 +12,14 @@ export const acceptFriendRequest = async (data) => {
 	let query = await collection.where('nickname', "==", data.from).get()
 	const secondDoc = collection.doc(await query.docs[0].id)
 	secondDoc.update({friends: firebase.firestore.FieldValue.arrayUnion(data.to)})
+
+	// create the conversation document
+	const iv = generateInitialisationVector();
+	await firestore.collection('conversation').add({
+		parties: [data.from, data.to],
+		initialisationVector: iv,
+		conversation: firebase.firestore.FieldValue.arrayUnion(),
+	})
 	window.location.reload(false);
 }
 

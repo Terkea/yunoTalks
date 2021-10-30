@@ -13,8 +13,7 @@ ReactDOM.render(
 			<RightPanelProvider>
 				<SearchChatsProvider>
 					<ModalProvider>
-						{/*<App/>*/}
-						<Test/>
+						<App/>
 					</ModalProvider>
 				</SearchChatsProvider>
 			</RightPanelProvider>

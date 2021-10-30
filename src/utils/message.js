@@ -1,6 +1,6 @@
 import {firestore} from "../config/firebase";
 import firebase from "firebase";
-import {computeKeys, encrypt, uncompressPrivateKey} from "./e2ee";
+import {computeKeys, encrypt, generateInitialisationVector, hexToUint8Array, uncompressPrivateKey} from "./e2ee";
 import {searchUserId} from "../providers/authProvider";
 
 
@@ -11,38 +11,38 @@ export const sendMessage = async (data) => {
 	const privateKey = localStorage.getItem('key')
 	const userProfile = await searchUserId(data.to)
 	const publicKey = userProfile.publicKey
-	// console.log(privateKey, publicKey)
+	const iv = generateInitialisationVector();
 
-	// todo: convert the string into buffer to be able to compute the keys
-	// console.log(uncompressPrivateKey(privateKey))
-	// const sharedKey = computeKeys(uncompressPrivateKey(privateKey), Uint8Array.from(Buffer.from(publicKey)))
-	// console.log(sharedKey)
-
+	// reconstruct the keys and generate the shared secret
+	const sharedKey = computeKeys(uncompressPrivateKey(privateKey), hexToUint8Array(publicKey))
 	// in case there is a conversation already going on in
 	// between the two add the message to the array
-	// if (conversation[0]) {
-	// 	return collection.doc(conversation[0]).update({
-	// 		parties: [data.from, data.to],
-	// 		conversation: firebase.firestore.FieldValue.arrayUnion({
-	// 			message: data.message,
-	// 			from: data.from,
-	// 			to: data.to,
-	// 			seen: false,
-	// 			timestamp: Date.now()
-	// 		}),
-	// 	})
-	// } else {
-	// 	return collection.add({
-	// 		parties: [data.from, data.to],
-	// 		conversation: firebase.firestore.FieldValue.arrayUnion({
-	// 			message: data.message,
-	// 			from: data.from,
-	// 			to: data.to,
-	// 			seen: false,
-	// 			timestamp: Date.now()
-	// 		}),
-	// 	})
-	// }
+
+	if (conversation[0]) {
+		// grab the existing IV and use it for encryption
+		return collection.doc(conversation[0]).update({
+			parties: [data.from, data.to],
+			conversation: firebase.firestore.FieldValue.arrayUnion({
+				message: encrypt(data.message, sharedKey, hexToUint8Array(conversation[1].initialisationVector)),
+				from: data.from,
+				to: data.to,
+				seen: false,
+				timestamp: Date.now()
+			}),
+		})
+	} else {
+		return collection.add({
+			parties: [data.from, data.to],
+			initialisationVector: iv,
+			conversation: firebase.firestore.FieldValue.arrayUnion({
+				message: encrypt(data.message, sharedKey, hexToUint8Array(iv)),
+				from: data.from,
+				to: data.to,
+				seen: false,
+				timestamp: Date.now()
+			}),
+		})
+	}
 }
 
 export const searchConversation = async (data) => {
