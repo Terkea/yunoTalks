@@ -59,6 +59,7 @@ export const signOut = () => {
 	return auth.signOut()
 }
 
+// search user by nickname and return the user data
 export const searchUserId = async (id) => {
 	const collection = await firestore.collection('profile')
 	let query = await collection.where('nickname', "==", id).get()
