@@ -14,7 +14,7 @@ export const sendMessage = async (data) => {
 	// console.log(privateKey, publicKey)
 
 	// todo: convert the string into buffer to be able to compute the keys
-	const sharedKey = computeKeys(new Buffer(localStorage.getItem('key')), publicKey)
+	const sharedKey = computeKeys(Buffer.from(localStorage.getItem('key')), Uint8Array.from(Buffer.from(publicKey)))
 	console.log(sharedKey)
 
 	// in case there is a conversation already going on in

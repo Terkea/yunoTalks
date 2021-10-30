@@ -1,5 +1,6 @@
-const crypto = require('crypto');
+import * as crypto from 'crypto'
 
+const {createECDH, ECDH} = require('crypto');
 
 // DOCS: https://nodejs.org/api/crypto.html#crypto_crypto_createecdh_curvename
 
@@ -25,6 +26,11 @@ const computeKeys = (ecdh, buffer) => {
 	return ecdh.computeSecret(buffer)
 }
 
+
+const uncompressPrivateKey = hex => {
+	return crypto.createECDH(TYPE).setPrivateKey(hex, 'hex')
+}
+
 const encrypt = (val, key) => {
 	let cipher = crypto.createCipheriv(ALGO, key, IV);
 	let encrypted = cipher.update(val, 'utf8', 'base64');
@@ -39,4 +45,4 @@ const decrypt = (encrypted, key) => {
 };
 
 
-export {generateKeys, computeKeys, encrypt, decrypt};
+export {generateKeys, computeKeys, encrypt, decrypt, uncompressPrivateKey};
