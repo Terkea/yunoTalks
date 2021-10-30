@@ -84,7 +84,7 @@ export const updateProfile = (object) => {
 	// TODO: update only the new data and if the object has valid values
 	return firestore.collection(`profile`)
 		.doc(auth.currentUser?.uid)
-		.set(object)
+		.set(object, {merge: true})
 		.then(r => console.log(r))
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import {AuthContext} from '../providers/authProvider'
+import UserAvatar from '../img/anonymous_user.png'
 
 
 const Branding = () => {
@@ -15,8 +16,8 @@ const Branding = () => {
 				>
 					<img
 						alt="#"
-						className="rounded-full h-16"
-						src="https://avatars.githubusercontent.com/u/11928943?s=400&u=0375a0975e4fca5b6025625b89e4ccf49ee465ff&v=4"
+						className="rounded-full h-16 w-16"
+						src={state.profile.avatar || UserAvatar}
 					/>
 				</div>
 				:
