@@ -14,6 +14,7 @@ const Settings = () => {
 	const {state} = React.useContext(AuthContext)
 	const {dispatch} = React.useContext(RightPanelContext)
 	const [message, setMessage] = React.useState("")
+	const refInput = React.useRef(null)
 
 	const uploadAvatar = (file) => {
 		const ref = storage.ref()
@@ -39,7 +40,7 @@ const Settings = () => {
 				<div className="flex justify-center items-center">
 					<div className="w-60 h-60">
 						<img
-							className="shadow-md rounded-full w-60 h-60 object-cover"
+							className="shadow-md w-60 h-60 object-cover"
 							src={state.profile.avatar || UserAvatar}
 							alt=''
 						/>
@@ -51,17 +52,28 @@ const Settings = () => {
 				</p>
 
 				<>
-					<div className="flex justify-center items-center">
-						<input onChange={(e) => uploadAvatar(e.target.files[0])} type="file"
-						       name="avatar" accept="image/png, image/jpeg"
-						       className="bg-chatAction text-gray-100 text-center font-medium rounded-md mb-3
-								border border-transparent items-center justify-center px-8 py-3 mt-7
-								hover:bg-actionH cursor-pointer"/>
+					<input ref={refInput}
+					       style={{opacity: 0}}
+					       onChange={(e) => uploadAvatar(e.target.files[0])}
+					       type="file"
+					       name="avatar" accept="image/png, image/jpeg"/>
 
+					<div className="flex justify-center items-center">
+						<label
+							onClick={() => refInput.current.click()}
+							className="bg-chatAction text-gray-100 text-center font-medium rounded-md mb-3
+								border border-transparent items-center justify-center px-8 py-3 mt-7
+								hover:bg-actionH cursor-pointer">
+							Upload avatar
+						</label>
 					</div>
+
 					<div className="flex justify-center items-center">
 						<button
-							onClick={() => dispatch({type: 'SET_PANEL_CONTENT', payload: {content: <DownloadPrivateKey/>}})}
+							onClick={() => dispatch({
+								type: 'SET_PANEL_CONTENT',
+								payload: {content: <DownloadPrivateKey/>}
+							})}
 							className="bg-chatAction  text-gray-100 text-center font-medium rounded-md mb-3
 								border border-transparent items-center justify-center px-8 py-3
 								hover:bg-actionH cursor-pointer">Download private key
