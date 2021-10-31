@@ -30,7 +30,7 @@ const ChatsPanel = () => {
 								setProfiles([...profiles, profile])
 							}
 						})
-					//	if the profiles are not set populate the state
+						//	if the profiles are not set populate the state
 					} else {
 						setProfiles([...profiles, profile])
 					}
@@ -42,6 +42,7 @@ const ChatsPanel = () => {
 
 	return (
 		<>
+			{/*todo: grab the last message, update the chatpreview component, display some message if the user has no friends*/}
 			{state.profile.friends ?
 				<div className="contacts p-2 flex-1 overflow-y-scroll">
 					{profiles.map((i) => {

@@ -48,9 +48,9 @@ const Settings = () => {
 
 				<>
 					<div className="flex justify-center items-center">
-						<input onChange={(e) => uploadAvatar(e.target.files[0])} type="file" name="avatar"
-						       accept="image/png, image/jpeg" className="bg-chatAction
-								text-gray-100 text-center font-medium rounded-md mb-3
+						<input onChange={(e) => uploadAvatar(e.target.files[0])} type="file"
+						       name="avatar" accept="image/png, image/jpeg"
+						       className="bg-chatAction text-gray-100 text-center font-medium rounded-md mb-3
 								border border-transparent items-center justify-center px-8 py-3 mt-7
 								hover:bg-actionH cursor-pointer"/>
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import HomePanel from "../components/panels/HomePanel";
+import PrivateKey from "../components/panels/PrivateKey";
 
 
 const RightPanelContext = React.createContext({})
@@ -18,7 +19,7 @@ const rightPanelReducer = (state, action) => {
 
 
 
-const initialState = {content: <HomePanel/>}
+const initialState = {content: <PrivateKey/>}
 const RightPanelProvider = ({children}) => {
 	const [state, dispatch] = React.useReducer(rightPanelReducer, initialState)
 	const value = {state, dispatch}
