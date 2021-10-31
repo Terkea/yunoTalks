@@ -15,6 +15,7 @@ const FullChat = ({name, avatar}) => {
 	const [conversation, setConversation] = React.useState([])
 	const [sharedKey, setSharedKey] = React.useState("");
 	const [IV, setIV] = React.useState("")
+	const [hasRightKey, setHasRightKey] = React.useState(null)
 
 	React.useEffect(() => {
 		const fetchConversation = async () => {
@@ -40,23 +41,27 @@ const FullChat = ({name, avatar}) => {
 			// console.log(publicKey, "this should be veronica's public key")
 
 			// reconstruct the keys and generate the shared secret
-			setSharedKey(computeKeys(uncompressPrivateKey(privateKey), hexToUint8Array(publicKey)))
+			try {
+				setSharedKey(computeKeys(uncompressPrivateKey(privateKey), hexToUint8Array(publicKey)))
+				setHasRightKey(true)
+			} catch (e) {
+				setHasRightKey(false)
+			}
 		}
 		getSharedKey();
 	}, [name])
 
 
-	if (conversation.conversation && sharedKey !== "") {
+	if (conversation.conversation && (sharedKey || !hasRightKey) !== "") {
 		return (
 			<>
 				<PanelHeader name={name} avatar={avatar}/>
 				{/* CHAT MESSAGES */}
 				<div className="chat-body p-8 flex-1 overflow-y-scroll">
-
+					{/*TODO: timestamp seems wrong */}
 					{conversation.conversation.map(i => {
 						return <Message
-							// text={i.message}
-							text={decrypt(i.message, sharedKey, IV)}
+							text={hasRightKey ? decrypt(i.message, sharedKey, IV) : i.message}
 							isFromMe={i.from === state.profile.nickname}
 							timestamp={new Date(i.timestamp)}
 							key={uid()}

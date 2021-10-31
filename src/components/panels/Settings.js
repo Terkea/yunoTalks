@@ -5,10 +5,13 @@ import {AuthContext} from "../../providers/authProvider";
 import UserAvatar from '../../img/anonymous_user.png'
 import {storage} from '../../config/firebase'
 import {uid} from 'uid';
+import {RightPanelContext} from "../../providers/rightPanelProvider";
+import PrivateKey from "./PrivateKey";
 
 
 const Settings = () => {
 	const {state} = React.useContext(AuthContext)
+	const {dispatch} = React.useContext(RightPanelContext)
 	const [message, setMessage] = React.useState("")
 
 	const uploadAvatar = (file) => {
@@ -59,6 +62,15 @@ const Settings = () => {
 						<button className="bg-chatAction  text-gray-100 text-center font-medium rounded-md mb-3
 								border border-transparent items-center justify-center px-8 py-3
 								hover:bg-actionH cursor-pointer">Download private key
+						</button>
+					</div>
+
+					<div className="flex justify-center items-center">
+						<button
+							onClick={() => dispatch({type: 'SET_PANEL_CONTENT', payload: {content: <PrivateKey/>}})}
+							className="bg-chatAction  text-gray-100 text-center font-medium rounded-md mb-3
+								border border-transparent items-center justify-center px-8 py-3
+								hover:bg-actionH cursor-pointer">Upload private key
 						</button>
 					</div>
 
