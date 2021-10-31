@@ -7,6 +7,7 @@ import {storage} from '../../config/firebase'
 import {uid} from 'uid';
 import {RightPanelContext} from "../../providers/rightPanelProvider";
 import PrivateKey from "./PrivateKey";
+import DownloadPrivateKey from "./DownloadPrivateKey";
 
 
 const Settings = () => {
@@ -59,7 +60,9 @@ const Settings = () => {
 
 					</div>
 					<div className="flex justify-center items-center">
-						<button className="bg-chatAction  text-gray-100 text-center font-medium rounded-md mb-3
+						<button
+							onClick={() => dispatch({type: 'SET_PANEL_CONTENT', payload: {content: <DownloadPrivateKey/>}})}
+							className="bg-chatAction  text-gray-100 text-center font-medium rounded-md mb-3
 								border border-transparent items-center justify-center px-8 py-3
 								hover:bg-actionH cursor-pointer">Download private key
 						</button>
