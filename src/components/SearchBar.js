@@ -1,5 +1,5 @@
 import React from 'react'
-import {SearchChatsContext} from "../providers/searchChats";
+import {SearchChatsContext} from "../providers/searchChatsProvider";
 
 
 const SearchBar = () => {

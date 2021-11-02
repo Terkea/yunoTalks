@@ -2,7 +2,7 @@ import React from 'react'
 import ChatPreview from "./ChatPreview";
 import {AuthContext, searchUserId} from "../providers/authProvider";
 import Loading from "./panels/Loading";
-import {SearchChatsContext} from "../providers/searchChats";
+import {SearchChatsContext} from "../providers/searchChatsProvider";
 import UserAvatar from '../img/anonymous_user.png'
 import {searchLastMessage} from "../utils/message";
 import {computeKeys, decrypt, hexToUint8Array, uncompressPrivateKey} from "../utils/e2ee";
