@@ -2,7 +2,7 @@ import PanelHeader from "../PanelHeader";
 import Message from "../Message";
 import TypePanel from "../TypePanel";
 import React from "react";
-import {searchConversation} from "../../utils/message";
+import {searchConversation, updateConversation} from "../../utils/message";
 import {firestore} from "../../config/firebase";
 import {AuthContext, searchUserId} from "../../providers/authProvider";
 import Loading from "./Loading";
@@ -66,18 +66,6 @@ const FullChat = ({name, avatar}) => {
 							avatar={avatar}
 						/>
 					})}
-
-					{/*<Message text="Ciao bella" isFromMe={true} timestamp={Math.round(new Date().getTime() / 1000)}/>*/}
-					{/*<Message text="Ciao bella" isFromMe={false}*/}
-					{/*         timestamp={Math.round(new Date().getTime() / 1000)}/>*/}
-					{/*<Message text="Ciao bella" isFromMe={true} timestamp={Math.round(new Date().getTime() / 1000)}/>*/}
-					{/*<Message text="Ciao bella" isFromMe={true} timestamp={Math.round(new Date().getTime() / 1000)}/>*/}
-					{/*<Message text="Ciao bella" isFromMe={false}*/}
-					{/*         timestamp={Math.round(new Date().getTime() / 1000)}/>*/}
-					{/*<Message text="Ciao bella" isFromMe={false}*/}
-					{/*         timestamp={Math.round(new Date().getTime() / 1000)}/>*/}
-
-
 				</div>
 
 				{/* TYPE */}

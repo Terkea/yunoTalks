@@ -73,3 +73,4 @@ export const searchLastMessage = async (data) => {
 	return [conversation[1].conversation[conversation[1].conversation.length - 1], conversation[1].initialisationVector]
 }
 
+

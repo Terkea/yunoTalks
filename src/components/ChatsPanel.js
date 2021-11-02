@@ -9,8 +9,10 @@ import {computeKeys, decrypt, hexToUint8Array, uncompressPrivateKey} from "../ut
 
 
 const getSharedKey = async (publicKey) => {
-	const privateKey = localStorage.getItem('key');
-	return await computeKeys(uncompressPrivateKey(privateKey), hexToUint8Array(publicKey))
+	if (localStorage.getItem('key')) {
+		const privateKey = localStorage.getItem('key');
+		return await computeKeys(uncompressPrivateKey(privateKey), hexToUint8Array(publicKey))
+	}
 }
 
 
@@ -40,7 +42,7 @@ const ChatsPanel = () => {
 									from: profile.nickname,
 									to: state.profile.nickname
 								})
-								profile.sharedKey = getSharedKey(profile.publicKey)
+								profile.sharedKey = getSharedKey(profile.publicKey) || null
 								setProfiles([...profiles, profile])
 							}
 						})
@@ -50,7 +52,7 @@ const ChatsPanel = () => {
 							from: profile.nickname,
 							to: state.profile.nickname
 						})
-						profile.sharedKey = await getSharedKey(profile.publicKey)
+						profile.sharedKey = await getSharedKey(profile.publicKey) || null
 						setProfiles([...profiles, profile])
 					}
 				}
@@ -64,17 +66,26 @@ const ChatsPanel = () => {
 		return (
 			<div className="contacts p-2 flex-1 overflow-y-scroll">
 				{profiles.map((i) => {
-					return <ChatPreview
-						key={i.nickname}
-						avatar={i.avatar || UserAvatar}
-						name={i.nickname}
-						lastMessage={
-							decrypt(i.lastMessage[0].message,
+					if (i.sharedKey !== null) {
+						return <ChatPreview
+							key={i.nickname}
+							avatar={i.avatar || UserAvatar}
+							name={i.nickname}
+							lastMessage={decrypt(i.lastMessage[0].message,
 								i.sharedKey,
 								hexToUint8Array(i.lastMessage[1]))
-						}
-						timestamp={new Date(i.lastMessage[0].timestamp)}
-						isNewMessage={i.lastMessage[0].seen === false}/>
+							}
+							timestamp={new Date(i.lastMessage[0].timestamp)}
+							isNewMessage={false}/>
+					} else {
+						return <ChatPreview
+							key={i.nickname}
+							avatar={i.avatar || UserAvatar}
+							name={i.nickname}
+							lastMessage={i.lastMessage[0].message}
+							timestamp={new Date(i.lastMessage[0].timestamp)}
+							isNewMessage={false}/>
+					}
 				})}
 			</div>
 		)
