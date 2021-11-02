@@ -37,7 +37,7 @@ const Notifications = () => {
 				                     response={i.data.response}/>
 			})}
 
-			{notifications.length === 0 && <p>You have no notifications</p>}
+			{notifications.length === 0 && <p className="ml-6 text-lg">You have no notifications</p>}
 		</>
 	)
 }

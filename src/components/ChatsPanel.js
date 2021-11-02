@@ -65,28 +65,30 @@ const ChatsPanel = () => {
 	if (state.profile.friends) {
 		return (
 			<div className="contacts p-2 flex-1 overflow-y-scroll">
-				{profiles.map((i) => {
-					if (i.sharedKey !== null) {
-						return <ChatPreview
-							key={i.nickname}
-							avatar={i.avatar || UserAvatar}
-							name={i.nickname}
-							lastMessage={decrypt(i.lastMessage[0].message,
-								i.sharedKey,
-								hexToUint8Array(i.lastMessage[1]))
-							}
-							timestamp={new Date(i.lastMessage[0].timestamp)}
-							isNewMessage={false}/>
-					} else {
-						return <ChatPreview
-							key={i.nickname}
-							avatar={i.avatar || UserAvatar}
-							name={i.nickname}
-							lastMessage={i.lastMessage[0].message}
-							timestamp={new Date(i.lastMessage[0].timestamp)}
-							isNewMessage={false}/>
-					}
-				})}
+				{profiles.length > 0 ? profiles.map((i) => {
+						if (i.sharedKey !== null) {
+							return <ChatPreview
+								key={i.nickname}
+								avatar={i.avatar || UserAvatar}
+								name={i.nickname}
+								lastMessage={decrypt(i.lastMessage[0].message,
+									i.sharedKey,
+									hexToUint8Array(i.lastMessage[1]))
+								}
+								timestamp={new Date(i.lastMessage[0].timestamp)}
+								isNewMessage={false}/>
+						} else {
+							return <ChatPreview
+								key={i.nickname}
+								avatar={i.avatar || UserAvatar}
+								name={i.nickname}
+								lastMessage={i.lastMessage[0].message}
+								timestamp={new Date(i.lastMessage[0].timestamp)}
+								isNewMessage={false}/>
+						}
+					})
+					: <p className="ml-4 text-lg">You don't appear to have any friends yet.</p>
+				}
 			</div>
 		)
 	} else {
