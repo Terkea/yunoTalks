@@ -1,7 +1,7 @@
 import React from 'react'
 import {AuthContext} from "../providers/authProvider";
 import {useForm} from "react-hook-form";
-import { sendMessage} from "../utils/message";
+import {sendMessage} from "../utils/message";
 
 const TypePanel = ({to}) => {
 	const {state} = React.useContext(AuthContext)
@@ -23,12 +23,12 @@ const TypePanel = ({to}) => {
 					<div className="flex flex-row items-center p-4">
 						<div className="relative flex-grow">
 							<label>
-								{/* todo: disable autocomplete */}
 								<input {...register("message")}
 								       className="rounded-full py-2 pl-3 pr-10 w-full border border-chatAction
 										focus:border-primary bg-chatAction focus:bg-primary focus:outline-none
 										text-gray-200 focus:shadow-md transition duration-300 ease-in"
 								       type="text"
+								       autoComplete='off'
 								       placeholder="Aa"
 								/>
 							</label>
