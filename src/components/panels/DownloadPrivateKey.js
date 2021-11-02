@@ -19,7 +19,7 @@ const DownloadPrivateKey = () => {
 			<p className="text-center mr-50 p-5 text-md md:text-md md:ml-5 font-bold md:block group-hover:block pl-6">
 				It will be impossible to decrypt your conversations <br/> if you do not submit your private key
 			</p>
-			<img src={key} className="mb-5"/>
+			<img src={key} alt={key} className="mb-5"/>
 			{localStorage.getItem('key') ?
 				<div
 					onClick={revealKey}

@@ -34,6 +34,7 @@ const RightPanelProvider = ({children}) => {
 		if (!localStorage.getItem('key')) {
 			dispatch({type: 'SET_PANEL_CONTENT', payload: {content: <PrivateKey/>}})
 		}
+		// eslint-disable-next-line
 	}, [localStorage.getItem('key')])
 
 	return (
