@@ -45,16 +45,31 @@ export const sendMessage = async (data) => {
 	}
 }
 
+/**
+ *
+ * @param data - Object.keys = from, to
+ * @returns {Promise<[conversationDocumentId, conversationData]>}
+ */
 export const searchConversation = async (data) => {
 	const collection = firestore.collection('conversation')
 	const query = await collection.where('parties', 'array-contains', data.from).get()
 	let conversationId, conversation;
 	query.forEach(el => {
 		if (el.data().parties.includes(data.from) && el.data().parties.includes(data.to)) {
-			// console.log('found it', el.id)
 			conversationId = el.id
 			conversation = el.data()
 		}
 	})
 	return [conversationId, conversation]
 }
+
+/**
+ *
+ * @param data - Object.keys = from, to
+ * @returns {Promise<[Object with message structure, initialisationVector as string]>}
+ */
+export const searchLastMessage = async (data) => {
+	const conversation = await searchConversation({from: data.from, to: data.to})
+	return [conversation[1].conversation[conversation[1].conversation.length - 1], conversation[1].initialisationVector]
+}
+

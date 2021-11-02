@@ -19,7 +19,6 @@ const UploadPrivateKey = ({text}) => {
 		}
 	}
 
-
 	return (
 		<>
 			<div className="flex justify-center items-center w-full">

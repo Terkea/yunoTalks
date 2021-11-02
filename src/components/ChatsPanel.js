@@ -4,6 +4,15 @@ import {AuthContext, searchUserId} from "../providers/authProvider";
 import Loading from "./panels/Loading";
 import {SearchChatsContext} from "../providers/searchChats";
 import UserAvatar from '../img/anonymous_user.png'
+import {searchLastMessage} from "../utils/message";
+import {computeKeys, decrypt, hexToUint8Array, uncompressPrivateKey} from "../utils/e2ee";
+
+
+const getSharedKey = async (publicKey) => {
+	const privateKey = localStorage.getItem('key');
+	console.log(computeKeys(uncompressPrivateKey(privateKey), hexToUint8Array(publicKey)))
+	return await computeKeys(uncompressPrivateKey(privateKey), hexToUint8Array(publicKey))
+}
 
 
 const ChatsPanel = () => {
@@ -12,6 +21,7 @@ const ChatsPanel = () => {
 	const [profiles, setProfiles] = React.useState([]);
 
 
+	// GET THE CONVERSATIONS
 	React.useEffect(() => {
 		// check if the profile was loaded
 		if (state.profile?.friends) {
@@ -25,13 +35,23 @@ const ChatsPanel = () => {
 					if (profiles.length > 0) {
 						// if the profile is already in the list dont add it once again
 						// eslint-disable-next-line array-callback-return
-						profiles.map(j => {
+						profiles.map(async j => {
 							if (j.nickname !== profile.nickname) {
+								profile.lastMessage = await searchLastMessage({
+									from: profile.nickname,
+									to: state.profile.nickname
+								})
+								profile.sharedKey = getSharedKey(profile.publicKey)
 								setProfiles([...profiles, profile])
 							}
 						})
 						//	if the profiles are not set populate the state
 					} else {
+						profile.lastMessage = await searchLastMessage({
+							from: profile.nickname,
+							to: state.profile.nickname
+						})
+						profile.sharedKey = await getSharedKey(profile.publicKey)
 						setProfiles([...profiles, profile])
 					}
 				}
@@ -40,38 +60,30 @@ const ChatsPanel = () => {
 		// eslint-disable-next-line
 	}, [state.profile?.friends, searchContext.state.keyword])
 
-	return (
-		<>
-			{/*todo: grab the last message, update the chatpreview component, display some message if the user has no friends*/}
-			{state.profile.friends ?
-				<div className="contacts p-2 flex-1 overflow-y-scroll">
-					{profiles.map((i) => {
-						return <ChatPreview
-							key={i.nickname}
-							avatar={i.avatar || UserAvatar}
-							name={i.nickname}
-							timestamp={Math.round(new Date().getTime() / 1000)} isNewMessage={false}/>
-					})}
+
+	if (state.profile.friends) {
+		return (
+			<div className="contacts p-2 flex-1 overflow-y-scroll">
+				{profiles.map((i) => {
+					return <ChatPreview
+						key={i.nickname}
+						avatar={i.avatar || UserAvatar}
+						name={i.nickname}
+						lastMessage={
+							decrypt(i.lastMessage[0].message,
+								i.sharedKey,
+								hexToUint8Array(i.lastMessage[1]))
+						}
+						timestamp={new Date(i.lastMessage[0].timestamp)}
+						isNewMessage={i.lastMessage[0].seen === false}/>
+				})}
+			</div>
+		)
+	} else {
+		return (<Loading/>)
+	}
 
 
-					{/* INDIVIDUAL CHAT */}
-					{/*<ChatPreview*/}
-					{/*	avatar="https://randomuser.me/api/portraits/women/33.jpg"*/}
-					{/*	name="Scarlett Johansson"*/}
-					{/*	timestamp={Math.round(new Date().getTime() / 1000)} isNewMessage={false}/>*/}
-
-
-					{/*<ChatPreview*/}
-					{/*	avatar="https://randomuser.me/api/portraits/men/97.jpg"*/}
-					{/*	name="Tony Stark"*/}
-					{/*	timestamp={1633582823} isNewMessage={true}/>*/}
-				</div>
-				:
-				<Loading/>}
-		</>
-
-
-	)
 }
 
 export default ChatsPanel

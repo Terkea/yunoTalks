@@ -5,7 +5,9 @@ import Moment from 'react-moment';
 import FullChat from "./panels/FullChat";
 import UserAvatar from '../img/anonymous_user.png'
 
-const ChatPreview = ({name, avatar, timestamp, isNewMessage, id}) => {
+
+const ChatPreview = ({name, avatar, timestamp, isNewMessage, id, lastMessage}) => {
+	console.log(isNewMessage)
 	const {dispatch} = React.useContext(RightPanelContext)
 	const changePanel = (panel) => {
 		dispatch({type: 'SET_PANEL_CONTENT', payload: {content: <FullChat name={name} avatar={avatar || UserAvatar}/>}})
@@ -29,7 +31,7 @@ const ChatPreview = ({name, avatar, timestamp, isNewMessage, id}) => {
 					'text-gray-600': !isNewMessage
 				})}>
 					<div className="min-w-0">
-						<p className="truncate">Hey, Are you there?</p>
+						<p className="truncate">{lastMessage}</p>
 					</div>
 					<p className="ml-2 whitespace-no-wrap">
 						<Moment unix date={timestamp} format="HH:mm" durationFromNow/>
@@ -39,7 +41,6 @@ const ChatPreview = ({name, avatar, timestamp, isNewMessage, id}) => {
 			{isNewMessage && <div
 				className="bg-newMessage w-3 h-3 rounded-full flex flex-shrink-0 hidden md:block group-hover:block"/>
 			}
-			{/*	TODO: seen functionality*/}
 		</div>
 	)
 }
