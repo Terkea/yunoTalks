@@ -10,7 +10,6 @@ import {computeKeys, decrypt, hexToUint8Array, uncompressPrivateKey} from "../ut
 
 const getSharedKey = async (publicKey) => {
 	const privateKey = localStorage.getItem('key');
-	console.log(computeKeys(uncompressPrivateKey(privateKey), hexToUint8Array(publicKey)))
 	return await computeKeys(uncompressPrivateKey(privateKey), hexToUint8Array(publicKey))
 }
 

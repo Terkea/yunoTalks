@@ -1,10 +1,6 @@
 import {generateKeys, computeKeys, encrypt, decrypt, uncompressPrivateKey, hexToUint8Array} from '../utils/e2ee'
 
 
-// console.log(computeKeys(Veronica.ecdh, Marian.buffer))
-// console.log(computeKeys(Marian.ecdh, Veronica.buffer))
-
-
 const Test = () => {
 	return (
 		<>

@@ -2,7 +2,6 @@ import svg from "../../img/3544901.svg";
 import UploadPrivateKey from "../UploadPrivateKey";
 import {generateQR} from "../../utils/qr";
 import React from 'react'
-// generateQR('test').then(r => console.log(r))
 
 
 const DownloadPrivateKey = () => {

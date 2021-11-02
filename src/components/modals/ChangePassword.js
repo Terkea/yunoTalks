@@ -28,7 +28,6 @@ const ChangePassword = () => {
 
 	const onSubmit = data => {
 		updatePassword(data.newPassword)
-		// console.log(data.newPassword)
 	}
 
 	return (

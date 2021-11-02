@@ -7,9 +7,9 @@ import UserAvatar from '../img/anonymous_user.png'
 
 
 const ChatPreview = ({name, avatar, timestamp, isNewMessage, id, lastMessage}) => {
-	console.log(isNewMessage)
 	const {dispatch} = React.useContext(RightPanelContext)
-	const changePanel = (panel) => {
+
+	const changePanel = () => {
 		dispatch({type: 'SET_PANEL_CONTENT', payload: {content: <FullChat name={name} avatar={avatar || UserAvatar}/>}})
 	}
 
@@ -34,7 +34,7 @@ const ChatPreview = ({name, avatar, timestamp, isNewMessage, id, lastMessage}) =
 						<p className="truncate">{lastMessage}</p>
 					</div>
 					<p className="ml-2 whitespace-no-wrap">
-						<Moment unix date={timestamp} format="HH:mm" durationFromNow/>
+						<Moment date={timestamp} format="D MMM YYYY HH:mm"/>
 					</p>
 				</div>
 			</div>

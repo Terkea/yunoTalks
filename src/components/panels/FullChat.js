@@ -13,8 +13,8 @@ import {computeKeys, decrypt, hexToUint8Array, uncompressPrivateKey} from "../..
 const FullChat = ({name, avatar}) => {
 	const {state} = React.useContext(AuthContext)
 	const [conversation, setConversation] = React.useState([])
-	const [sharedKey, setSharedKey] = React.useState("");
 	const [IV, setIV] = React.useState("")
+	const [sharedKey, setSharedKey] = React.useState("");
 	const [hasRightKey, setHasRightKey] = React.useState(null)
 
 	React.useEffect(() => {
@@ -38,7 +38,6 @@ const FullChat = ({name, avatar}) => {
 			const privateKey = localStorage.getItem('key')
 			const userProfile = await searchUserId(name)
 			const publicKey = userProfile.publicKey
-			// console.log(publicKey, "this should be veronica's public key")
 
 			// reconstruct the keys and generate the shared secret
 			try {
@@ -58,13 +57,13 @@ const FullChat = ({name, avatar}) => {
 				<PanelHeader name={name} avatar={avatar}/>
 				{/* CHAT MESSAGES */}
 				<div className="chat-body p-8 flex-1 overflow-y-scroll">
-					{/*TODO: timestamp seems wrong */}
 					{conversation.conversation.map(i => {
 						return <Message
 							text={hasRightKey ? decrypt(i.message, sharedKey, IV) : i.message}
 							isFromMe={i.from === state.profile.nickname}
 							timestamp={new Date(i.timestamp)}
 							key={uid()}
+							avatar={avatar}
 						/>
 					})}
 

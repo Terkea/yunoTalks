@@ -1,6 +1,7 @@
 import Moment from "react-moment";
 
-const Message = ({timestamp, isFromMe, text}) => {
+
+const Message = ({timestamp, isFromMe, text, avatar}) => {
 	return (
 		<>
 			{isFromMe ?
@@ -12,7 +13,7 @@ const Message = ({timestamp, isFromMe, text}) => {
 							</p>
 							<p className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2
 						text-gray-500 p-2">
-								<Moment unix date={timestamp} format="D MMM YYYY HH:mm"/>
+								<Moment date={timestamp} format="D MMM YYYY HH:mm"/>
 							</p>
 						</div>
 					</div>
@@ -22,8 +23,8 @@ const Message = ({timestamp, isFromMe, text}) => {
 					<div className="w-11 h-11 relative flex flex-shrink-0 mr-4">
 						<img
 							className="shadow-md rounded-full w-full h-full object-cover"
-							src="https://randomuser.me/api/portraits/women/33.jpg"
-							alt=""
+							src={avatar}
+							alt={avatar}
 						/>
 					</div>
 					<div className="messages text-sm text-gray-700 grid grid-flow-row gap-2">
@@ -33,14 +34,12 @@ const Message = ({timestamp, isFromMe, text}) => {
 							</p>
 							<p className="hidden group-hover:block flex flex-shrink-0 focus:outline-none mx-2
 						text-gray-500 p-2">
-								<Moment unix date={timestamp} format="HH:mm" durationFromNow/>
+								<Moment date={timestamp} format="D MMM YYYY HH:mm"/>
 							</p>
 						</div>
 					</div>
 				</div>
 			}
-
-
 		</>
 	)
 }
