@@ -12,13 +12,13 @@ import {hasUnseenNotifications} from "../utils/notification";
 
 
 const ActionsPanel = () => {
-	const {dispatch} = React.useContext(RightPanelContext)
-	const {state} = React.useContext(AuthContext)
+	const rp = React.useContext(RightPanelContext)
+	const {state, dispatch} = React.useContext(AuthContext)
 	const modalContext = React.useContext(ModalContext)
 	const [newHasNotification, setHasNewNotification] = React.useState(false)
 
 	const changePanel = (panel) => {
-		dispatch({type: 'SET_PANEL_CONTENT', payload: {content: panel}})
+		rp.dispatch({type: 'SET_PANEL_CONTENT', payload: {content: panel}})
 	}
 
 	React.useEffect(() => {

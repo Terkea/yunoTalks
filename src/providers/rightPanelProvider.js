@@ -7,12 +7,6 @@ const RightPanelContext = React.createContext({})
 const rightPanelReducer = (state, action) => {
 	switch (action.type) {
 		case 'SET_PANEL_CONTENT': {
-			// in case the private key cant be found prevent the user from browsing around
-			// if (!localStorage.getItem('key')) {
-			// 	return {
-			// 		content: <PrivateKey/>
-			// 	}
-			// }
 			return {
 				content: action.payload.content
 			}

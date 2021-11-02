@@ -27,6 +27,7 @@ const Register = () => {
 	});
 
 	const onSubmit = (data) => {
+		debugger;
 		registerAccount(data.email, data.password, data.username + "#" +
 			Math.floor(1000 + Math.random() * 9000).toString()).then(() => {
 				history.push('/')
