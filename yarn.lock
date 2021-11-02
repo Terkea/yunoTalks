@@ -7329,6 +7329,11 @@ jsonfile@^6.0.1:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
+jsqr@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/jsqr/-/jsqr-1.4.0.tgz#8efb8d0a7cc6863cb6d95116b9069123ce9eb2d1"
+  integrity sha512-dxLob7q65Xg2DvstYkRpkYtmKm2sPJ9oFhrhmudT1dZvNFFTlroai3AWSpLey/w5vMcLBXRgOJsbXpdN9HzU/A==
+
 "jsx-ast-utils@^2.4.1 || ^3.0.0", jsx-ast-utils@^3.1.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/jsx-ast-utils/-/jsx-ast-utils-3.2.0.tgz#41108d2cec408c3453c1bbe8a4aae9e1e2bd8f82"
@@ -9655,6 +9660,13 @@ q@^1.1.2:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
+
+qrcode-decoder@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/qrcode-decoder/-/qrcode-decoder-0.2.2.tgz#1f808afe927e901d402826d38c3bbbbffbb17b06"
+  integrity sha512-gyysRyA/SHaMn7yDKhFJ8AGNkbTJfSVq/7vtNWtBdW5PdT3m8SLX+YbWY04HRkoS/H7RaI3UfAsOw+cVqsfWHg==
+  dependencies:
+    jsqr "^1.4.0"
 
 qrcode@^1.4.4:
   version "1.4.4"
