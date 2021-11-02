@@ -2,7 +2,7 @@ import PanelHeader from "../PanelHeader";
 import Message from "../Message";
 import TypePanel from "../TypePanel";
 import React from "react";
-import {searchConversation, updateConversation} from "../../utils/message";
+import {searchConversation} from "../../utils/message";
 import {firestore} from "../../config/firebase";
 import {AuthContext, searchUserId} from "../../providers/authProvider";
 import Loading from "./Loading";

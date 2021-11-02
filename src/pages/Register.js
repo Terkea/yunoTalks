@@ -9,6 +9,7 @@ import {LockClosedIcon, UserIcon} from "@heroicons/react/solid";
 import {Link} from 'react-router-dom'
 import {register as registerAccount} from "../providers/authProvider";
 
+
 const schema = yup.object().shape({
 	email: yup.string().email('Invalid email format').required('Email field required'),
 	username: yup.string().required('Username field required'),

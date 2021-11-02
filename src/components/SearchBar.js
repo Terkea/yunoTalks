@@ -1,6 +1,7 @@
 import React from 'react'
 import {SearchChatsContext} from "../providers/searchChats";
 
+
 const SearchBar = () => {
 	const {dispatch} = React.useContext(SearchChatsContext)
 

@@ -1,5 +1,4 @@
 import svg from "../../img/3544901.svg";
-import UploadPrivateKey from "../UploadPrivateKey";
 import {generateQR} from "../../utils/qr";
 import React from 'react'
 
@@ -29,7 +28,6 @@ const DownloadPrivateKey = () => {
 								hover:bg-actionH cursor-pointer">Reveal Private Key
 				</div> : null
 			}
-
 		</div>
 	)
 }

@@ -102,9 +102,7 @@ const Settings = () => {
 					</div>
 					<p className='flex justify-center items-center text-green-500 mt-2'>{message}</p>
 				</>
-
 			</div>
-
 		</>
 	)
 }
