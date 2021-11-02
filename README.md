@@ -1,3 +1,7 @@
+#Todo: 
+- change title and icon
+- write automated tests
+
 # Installation
 
 ## Option 1
