@@ -33,11 +33,9 @@ const ChatPreview = ({name, avatar, timestamp, isNewMessage, id, lastMessage}) =
 					<div className="min-w-0">
 						<p className="truncate">{lastMessage}</p>
 					</div>
-
-					{timestamp ? <p className="ml-2 whitespace-no-wrap">
+					<p className="ml-2 whitespace-no-wrap">
 						<Moment date={timestamp} format="D MMM YYYY HH:mm"/>
-					</p> : null}
-
+					</p>
 				</div>
 			</div>
 			{isNewMessage && <div
