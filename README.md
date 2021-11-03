@@ -1,6 +1,12 @@
 #Todo: 
 - change title and icon
-- write automated tests
+- write automated tests 
+- buguri: notifications not real time
+  you can send friend request to users that dont exist then when you type an existing user the request doesnt send
+  privatekey after register
+
+todos: homepage
+
 
 # Installation
 

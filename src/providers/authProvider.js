@@ -49,7 +49,9 @@ export const register = (email, password, nickname) => {
 		firestore.collection(`profile`)
 			.doc(res.user.uid)
 			.set(data)
-			.then(r => console.log(r))
+			.then(r => {
+				window.location.reload(false)
+			})
 			.catch(e => console.log(e))
 	})
 }

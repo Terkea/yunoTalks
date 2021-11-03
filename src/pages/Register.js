@@ -8,6 +8,8 @@ import clsx from 'clsx';
 import {LockClosedIcon, UserIcon} from "@heroicons/react/solid";
 import {Link} from 'react-router-dom'
 import {register as registerAccount} from "../providers/authProvider";
+import {RightPanelContext} from "../providers/rightPanelProvider";
+import HomePanel from "../components/panels/HomePanel";
 
 
 const schema = yup.object().shape({
@@ -21,21 +23,20 @@ const schema = yup.object().shape({
 
 const Register = () => {
 	const [error, setError] = React.useState("")
+	const {dispatch} = React.useContext(RightPanelContext)
 	const history = useHistory();
 	const {register, handleSubmit, formState: {errors}} = useForm({
 		resolver: yupResolver(schema)
 	});
 
 	const onSubmit = (data) => {
-		debugger;
 		registerAccount(data.email, data.password, data.username + "#" +
-			Math.floor(1000 + Math.random() * 9000).toString()).then(() => {
-				history.push('/')
-			})
+			Math.floor(1000 + Math.random() * 9000).toString())
 			.catch(e => {
 				setError(e.toString())
 			})
-
+		history.push('/')
+		dispatch({type: 'SET_PANEL_CONTENT', payload: {content: <HomePanel/>}})
 	};
 
 	return (
