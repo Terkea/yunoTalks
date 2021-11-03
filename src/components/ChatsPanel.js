@@ -21,7 +21,7 @@ const ChatsPanel = () => {
 					conversationsContext.state.conversations.map(i => {
 						return <ChatPreview
 							key={i.data.initialisationVector}
-							avatar={i.avatar || UserAvatar}
+							avatar={i.otherProfile.avatar || UserAvatar}
 							name={i.otherProfile.nickname}
 							lastMessage={"test"}
 							// timestamp={new Date(i.lastMessage[0].timestamp)}

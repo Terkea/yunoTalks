@@ -45,28 +45,20 @@ const ConversationsProvider = ({children}) => {
 			firestore.collection("conversation")
 				.where("parties", "array-contains", account.state.profile.nickname)
 				// .get().then(res => console.log(res.id))
-				.onSnapshot((querySnapshot) => {
+				.onSnapshot(async (querySnapshot) => {
 					dispatch({
 						type: "SET_CONVERSATIONS", payload: {
-							conversations: querySnapshot.docs.map((doc) => {
-								// TODO: need to solve this promise
-								return {
-									id: doc.id,
-									otherProfile: searchUserId(doc.data().parties.pop(account.state.profile.nickname)),
-									data: doc.data()
-								}
-							})
+							conversations: await Promise.all(querySnapshot.docs.map((doc) => {
+								return searchUserId(doc.data().parties.pop(account.state.profile.nickname)).then(r => {
+									return {
+										id: doc.id,
+										otherProfile: r,
+										data: doc.data()
+									}
+								})
+							}))
 						}
 					})
-					// querySnapshot.forEach(async (doc) => {
-					// 	const data = doc.data()
-					// 	const otherProfile = await searchUserId(doc.data().parties.pop(account.state.profile.nickname));
-					// 	data.sharedKey = await getSharedKey(otherProfile.publicKey)
-					// 	data.avatar = await otherProfile.avatar || ""
-					// 	data.nickname = await otherProfile.nickname
-					// 	dispatch({type: "ADD_CONVERSATION", payload: {conversations: {id: doc.id, data: data}}})
-					// });
-
 				});
 		}
 	}, [account.state.profile.nickname])
