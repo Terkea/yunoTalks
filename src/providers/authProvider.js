@@ -60,30 +60,25 @@ export const signOut = () => {
 }
 
 // search user by nickname and return the user data
-// export const searchUserId = async (id) => {
-// 	const collection = await firestore.collection('profile')
-// 	let query = await collection.where('nickname', "==", id).get()
-//
-// 	try {
-// 		return await query.docs[0].data()
-// 	} catch (e) {
-// 		// in case theres no profile with that unique nickname dont return anything
-// 		// console.log(e)
-// 		return undefined
-// 	}
-// }
+export const searchUserId = async (id) => {
+	const collection = await firestore.collection('profile')
+	let query = await collection.where('nickname', "==", id).get()
 
-export const searchUserId = (id) => {
-	return firestore.collection('profile')
-		.where('nickname', "==", id).get()
-		.then((r) => {
-			return r.docs[0].data()
-		})
-
+	try {
+		return await query.docs[0].data()
+	} catch (e) {
+		// in case theres no profile with that unique nickname dont return anything
+		// console.log(e)
+		return undefined
+	}
 }
 
 export const recoverPassword = (email) => {
 	return auth.sendPasswordResetEmail(email)
+}
+
+export const updateAccount = (object) => {
+	// TODO: update email???
 }
 
 export const updateProfile = (object) => {
