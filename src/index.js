@@ -10,15 +10,15 @@ import {ConversationsProvider} from './providers/conversationsProvider'
 ReactDOM.render(
 	<React.StrictMode>
 		<AuthProvider>
-			<ConversationsProvider>
-				<RightPanelProvider>
-					<SearchChatsProvider>
+			<SearchChatsProvider>
+				<ConversationsProvider>
+					<RightPanelProvider>
 						<ModalProvider>
 							<App/>
 						</ModalProvider>
-					</SearchChatsProvider>
-				</RightPanelProvider>
-			</ConversationsProvider>
+					</RightPanelProvider>
+				</ConversationsProvider>
+			</SearchChatsProvider>
 		</AuthProvider>
 	</React.StrictMode>,
 	document.getElementById('root')
