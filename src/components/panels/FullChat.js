@@ -51,28 +51,35 @@ const FullChat = ({name, avatar}) => {
 	}, [name])
 
 
-	if (conversation.conversation && (sharedKey || !hasRightKey) !== "") {
-		return (
-			<>
-				<PanelHeader name={name} avatar={avatar}/>
-				{/* CHAT MESSAGES */}
-				<div className="chat-body p-8 flex-1 overflow-y-scroll">
-					{conversation.conversation.map(i => {
-						return <Message
-							text={hasRightKey ? decrypt(i.message, sharedKey, IV) : i.message}
-							isFromMe={i.from === state.profile.nickname}
-							timestamp={new Date(i.timestamp)}
-							key={uid()}
-							avatar={avatar}
-						/>
-					})}
-				</div>
+	try{
+		if (conversation.conversation && (sharedKey || !hasRightKey) !== "") {
+			return (
+				<>
+					<PanelHeader name={name} avatar={avatar}/>
+					{/* CHAT MESSAGES */}
+					<div className="chat-body p-8 flex-1 overflow-y-scroll">
+						{conversation.conversation.map(i => {
+							return <Message
+								text={hasRightKey ? decrypt(i.message, sharedKey, IV) : i.message}
+								isFromMe={i.from === state.profile.nickname}
+								timestamp={new Date(i.timestamp)}
+								key={uid()}
+								avatar={avatar}
+							/>
+						})}
+					</div>
 
-				{/* TYPE */}
-				<TypePanel to={name}/>
-			</>)
-	} else {
-		return <Loading/>
+					{/* TYPE */}
+					<TypePanel to={name}/>
+				</>)
+		} else {
+			return <Loading/>
+		}
+	}catch (e) {
+		// in case the other party blocked this user
+		// the conversation will be deleted resulting in an exception
+		// reload to avoid the app from breaking
+		window.location.reload(false);
 	}
 
 }

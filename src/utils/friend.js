@@ -32,5 +32,16 @@ export const unfriend = async (data) => {
 	let query = await collection.where('nickname', "==", data.name).get()
 	const secondDoc = collection.doc(await query.docs[0].id)
 	secondDoc.update({friends: firebase.firestore.FieldValue.arrayRemove(data.myName)})
+
+	firestore.collection('conversation')
+		.where('parties', 'array-contains', data.myName).get()
+		.then((res) => {
+			res.docs.map(i => {
+				if (i.data().parties.filter(j => j !== data.myName)[0] === data.name) {
+					firestore.collection('conversation').doc(i.id).delete()
+				}
+			})
+		})
+
 	window.location.reload(false);
 }

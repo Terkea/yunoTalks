@@ -9,6 +9,7 @@ import {ModalContext} from "../providers/modalProvider";
 import Modal from "./Modal";
 import AddFriend from "./modals/AddFriend";
 import {hasUnseenNotifications} from "../utils/notification";
+import {firestore} from "../config/firebase";
 
 
 const ActionsPanel = () => {
@@ -23,9 +24,15 @@ const ActionsPanel = () => {
 
 	React.useEffect(() => {
 		if (state.profile.nickname !== undefined) {
-			hasUnseenNotifications({nickname: state.profile.nickname}).then(res => setHasNewNotification(res))
+			firestore.collection("notification")
+				.where('to', '==', state.profile.nickname)
+				.onSnapshot(querySnapshot => {
+					querySnapshot.docs.map(doc => {
+						setHasNewNotification(!doc.data().seen)
+					})
+				})
 		}
-	}, [state])
+	}, [state.profile.nickname])
 
 	return (
 		<div className="flex flex-row p-2 w-0 min-w-full">
