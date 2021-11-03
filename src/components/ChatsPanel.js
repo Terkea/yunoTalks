@@ -14,7 +14,7 @@ const ChatsPanel = () => {
 	const conversationsContext = React.useContext(ConversationsContext)
 
 	React.useEffect(() => {
-		if (searchContext.state.keyword) {
+		if (searchContext.state.keyword.length > 0) {
 			conversationsContext.dispatch({
 				type: 'SEARCH_CONVERSATION',
 				payload: {
