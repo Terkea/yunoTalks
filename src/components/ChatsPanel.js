@@ -31,14 +31,30 @@ const ChatsPanel = () => {
 			<div className="contacts p-2 flex-1 overflow-y-scroll">
 				{state.profile.friends.length > 0 ?
 					conversationsContext.state.conversations.map(i => {
-						return <ChatPreview
-							key={i.data.initialisationVector}
-							avatar={i.otherProfile.avatar || UserAvatar}
-							name={i.otherProfile.nickname}
-							lastMessage={i.data.conversation.length > 0 ? "" : "Say hi to your new friend"}
-							// timestamp={new Date(i.lastMessage[0].timestamp)}
-							timestamp={i.data.conversation.length > 0 ? "" : ""}
-							isNewMessage={false}/>
+						if (i.data.conversation.length > 0) {
+							return <ChatPreview
+								key={i.data.initialisationVector}
+								avatar={i.otherProfile.avatar || UserAvatar}
+								name={i.otherProfile.nickname}
+								lastMessage={
+									i.sharedKey !== "" ?
+										decrypt(
+											i.data.conversation[i.data.conversation.length - 1].message,
+											i.sharedKey,
+											hexToUint8Array(i.data.initialisationVector)
+										)
+										: i.data.conversation[i.data.conversation.length - 1].message}
+								timestamp={i.data.conversation[i.data.conversation.length - 1].timestamp}
+								isNewMessage={false}/>
+						} else {
+							return <ChatPreview
+								key={i.data.initialisationVector}
+								avatar={i.otherProfile.avatar || UserAvatar}
+								name={i.otherProfile.nickname}
+								lastMessage={"Say hi to your new friend"}
+								timestamp={""}
+								isNewMessage={false}/>
+						}
 					})
 
 					: <p className="ml-4 text-lg">You don't appear to have any friends yet.</p>
@@ -48,8 +64,6 @@ const ChatsPanel = () => {
 	} else {
 		return (<Loading/>)
 	}
-
-
 }
 
 export default ChatsPanel
