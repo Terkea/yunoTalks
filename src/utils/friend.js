@@ -36,6 +36,7 @@ export const unfriend = async (data) => {
 	firestore.collection('conversation')
 		.where('parties', 'array-contains', data.myName).get()
 		.then((res) => {
+			// eslint-disable-next-line
 			res.docs.map(i => {
 				if (i.data().parties.filter(j => j !== data.myName)[0] === data.name) {
 					firestore.collection('conversation').doc(i.id).delete()

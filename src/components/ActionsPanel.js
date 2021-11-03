@@ -8,7 +8,6 @@ import {AuthContext, signOut} from "../providers/authProvider";
 import {ModalContext} from "../providers/modalProvider";
 import Modal from "./Modal";
 import AddFriend from "./modals/AddFriend";
-import {hasUnseenNotifications} from "../utils/notification";
 import {firestore} from "../config/firebase";
 
 
@@ -27,6 +26,7 @@ const ActionsPanel = () => {
 			firestore.collection("notification")
 				.where('to', '==', state.profile.nickname)
 				.onSnapshot(querySnapshot => {
+					// eslint-disable-next-line
 					querySnapshot.docs.map(doc => {
 						setHasNewNotification(!doc.data().seen)
 					})
