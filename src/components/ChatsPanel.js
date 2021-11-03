@@ -32,20 +32,37 @@ const ChatsPanel = () => {
 				{state.profile.friends.length > 0 ?
 					conversationsContext.state.conversations.map(i => {
 						if (i.data.conversation.length > 0) {
-							return <ChatPreview
-								key={i.data.initialisationVector}
-								avatar={i.otherProfile.avatar || UserAvatar}
-								name={i.otherProfile.nickname}
-								lastMessage={
-									i.sharedKey !== "" ?
-										decrypt(
-											i.data.conversation[i.data.conversation.length - 1].message,
-											i.sharedKey,
-											hexToUint8Array(i.data.initialisationVector)
-										)
-										: i.data.conversation[i.data.conversation.length - 1].message}
-								timestamp={i.data.conversation[i.data.conversation.length - 1].timestamp}
-								isNewMessage={false}/>
+							// in case the decryption throws an error
+							// due to diverse reasons such as
+							// wrong public/private key
+							// return the encrypted message
+							try {
+								return <ChatPreview
+									key={i.data.initialisationVector}
+									avatar={i.otherProfile.avatar || UserAvatar}
+									name={i.otherProfile.nickname}
+									lastMessage={
+										i.sharedKey !== "" ?
+											decrypt(
+												i.data.conversation[i.data.conversation.length - 1].message,
+												i.sharedKey,
+												hexToUint8Array(i.data.initialisationVector)
+											)
+											: i.data.conversation[i.data.conversation.length - 1].message}
+									timestamp={i.data.conversation[i.data.conversation.length - 1].timestamp}
+									isNewMessage={false}/>
+							} catch (e) {
+								return <ChatPreview
+									key={i.data.initialisationVector}
+									avatar={i.otherProfile.avatar || UserAvatar}
+									name={i.otherProfile.nickname}
+									lastMessage={
+										i.sharedKey !== "" ?
+											i.data.conversation[i.data.conversation.length - 1].message
+											: i.data.conversation[i.data.conversation.length - 1].message}
+									timestamp={i.data.conversation[i.data.conversation.length - 1].timestamp}
+									isNewMessage={false}/>
+							}
 						} else {
 							return <ChatPreview
 								key={i.data.initialisationVector}

@@ -51,7 +51,7 @@ const FullChat = ({name, avatar}) => {
 	}, [name])
 
 
-	try{
+	try {
 		if (conversation.conversation && (sharedKey || !hasRightKey) !== "") {
 			return (
 				<>
@@ -59,13 +59,27 @@ const FullChat = ({name, avatar}) => {
 					{/* CHAT MESSAGES */}
 					<div className="chat-body p-8 flex-1 overflow-y-scroll">
 						{conversation.conversation.map(i => {
-							return <Message
-								text={hasRightKey ? decrypt(i.message, sharedKey, IV) : i.message}
-								isFromMe={i.from === state.profile.nickname}
-								timestamp={new Date(i.timestamp)}
-								key={uid()}
-								avatar={avatar}
-							/>
+							// in case the decryption throws an error
+							// due to diverse reasons such as
+							// wrong public/private key
+							// return the encrypted message
+							try {
+								return <Message
+									text={hasRightKey ? decrypt(i.message, sharedKey, IV) : i.message}
+									isFromMe={i.from === state.profile.nickname}
+									timestamp={new Date(i.timestamp)}
+									key={uid()}
+									avatar={avatar}
+								/>
+							} catch (e) {
+								return <Message
+									text={hasRightKey ? i.message : i.message}
+									isFromMe={i.from === state.profile.nickname}
+									timestamp={new Date(i.timestamp)}
+									key={uid()}
+									avatar={avatar}
+								/>
+							}
 						})}
 					</div>
 
@@ -75,7 +89,7 @@ const FullChat = ({name, avatar}) => {
 		} else {
 			return <Loading/>
 		}
-	}catch (e) {
+	} catch (e) {
 		// in case the other party blocked this user
 		// the conversation will be deleted resulting in an exception
 		// reload to avoid the app from breaking
