@@ -48,7 +48,7 @@ const ConversationsProvider = ({children}) => {
 						dispatch({
 							type: "SET_CONVERSATIONS", payload: {
 								conversations: await Promise.all(querySnapshot.docs.map((doc) => {
-									return searchUserId(doc.data().parties.pop(account.state.profile.nickname))
+									return searchUserId(doc.data().parties.filter(i => i !== account.state.profile.nickname)[0])
 										.then(r => {
 											const privateKey = localStorage.getItem('key')
 											let sharedKey;

@@ -24,13 +24,14 @@ const ChatsPanel = () => {
 			})
 		}
 		//
-	}, [searchContext.state.keyword, state.profile.nickname, conversationsContext])
+	}, [searchContext.state.keyword])
 
 	if (state.profile.friends) {
 		return (
 			<div className="contacts p-2 flex-1 overflow-y-scroll">
 				{state.profile.friends.length > 0 ?
 					conversationsContext.state.conversations.map(i => {
+						console.log(i.otherProfile, state.profile)
 						if (i.data.conversation.length > 0) {
 							return <ChatPreview
 								key={i.data.initialisationVector}
