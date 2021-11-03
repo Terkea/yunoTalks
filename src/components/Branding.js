@@ -12,23 +12,14 @@ const Branding = () => {
 		return (
 			<div className="header p-4 flex flex-row items-center flex-none">
 				{/* IF THE PROFILE IS NOT LOADED THEN DISPLAY A SKELETON */}
-				{profile.avatar ?
-					<div
-						className="w-18 h-18 relative flex flex-shrink-0"
-					>
-						<img
-							alt="#"
-							className="rounded-full h-16 w-16"
-							src={state.profile.avatar || UserAvatar}
-						/>
-					</div>
-					:
-					<div className="relative flex flex-shrink-0">
-						<div className="animate-pulse">
-							<div className="rounded-full bg-primary w-16 h-16"></div>
-						</div>
-					</div>
-				}
+
+				<div className="w-18 h-18 relative flex flex-shrink-0">
+					<img
+						alt="#"
+						className="rounded-full h-16 w-16"
+						src={state.profile.avatar || UserAvatar}
+					/>
+				</div>
 
 				{profile.nickname ?
 					<p className="text-lg font-bold hidden md:block group-hover:block pl-6">
