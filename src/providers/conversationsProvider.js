@@ -30,15 +30,6 @@ const conversationsReducer = (state, action) => {
 	}
 }
 
-// ACTIONS
-const getSharedKey = async (publicKey) => {
-	if (localStorage.getItem('key')) {
-		const privateKey = localStorage.getItem('key');
-		return await computeKeys(uncompressPrivateKey(privateKey), hexToUint8Array(publicKey))
-	}
-}
-
-
 const ConversationsContext = React.createContext({initialState})
 
 const ConversationsProvider = ({children}) => {

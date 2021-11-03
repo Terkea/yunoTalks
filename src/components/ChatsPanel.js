@@ -1,11 +1,10 @@
 import React from 'react'
 import ChatPreview from "./ChatPreview";
-import {AuthContext, searchUserId} from "../providers/authProvider";
+import {AuthContext} from "../providers/authProvider";
 import Loading from "./panels/Loading";
 import {SearchChatsContext} from "../providers/searchChatsProvider";
 import UserAvatar from '../img/anonymous_user.png'
-import {searchLastMessage} from "../utils/message";
-import {computeKeys, decrypt, hexToUint8Array, uncompressPrivateKey} from "../utils/e2ee";
+import {decrypt, hexToUint8Array} from "../utils/e2ee";
 import {ConversationsContext} from "../providers/conversationsProvider";
 
 
@@ -24,7 +23,8 @@ const ChatsPanel = () => {
 				}
 			})
 		}
-	}, [searchContext.state.keyword])
+		//
+	}, [searchContext.state.keyword, state.profile.nickname, conversationsContext])
 
 	if (state.profile.friends) {
 		return (
