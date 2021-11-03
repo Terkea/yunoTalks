@@ -6,7 +6,7 @@ import {createNotification, searchNotification} from "../../utils/notification";
 import {AuthContext} from '../../providers/authProvider'
 
 const AddFriend = () => {
-	const {register, handleSubmit} = useForm();
+	const {register, handleSubmit, reset} = useForm();
 	const [message, setMessage] = React.useState("")
 	const [error, setError] = React.useState("")
 	const {state} = React.useContext(AuthContext)
@@ -36,6 +36,7 @@ const AddFriend = () => {
 			setError(`There is no ${data.userId} in our records`)
 			setMessage("")
 		}
+		reset('userId')
 	}
 
 	return (
