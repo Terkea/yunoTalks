@@ -23,7 +23,7 @@ const ChatsPanel = () => {
 				}
 			})
 		}
-		//
+		// eslint-disable-next-line
 	}, [searchContext.state.keyword])
 
 	if (state.profile.friends) {
