@@ -28,6 +28,7 @@ const Login = () => {
 		loginAccount(data.email, data.password)
 			.then(() => {
 				history.push('/')
+				window.location.reload(false)
 			})
 			.catch(e => {
 				setError(e.toString())

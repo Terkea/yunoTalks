@@ -58,7 +58,7 @@ export const register = (email, password, nickname) => {
 
 export const signOut = () => {
 	localStorage.removeItem('user')
-	localStorage.removeItem('key')
+	// localStorage.removeItem('key')
 	return auth.signOut()
 }
 
