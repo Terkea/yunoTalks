@@ -7,7 +7,7 @@
     "@heroicons/react": "^1.0.2",
     "@hookform/resolvers": "^2.6.1",
     "@tailwindcss/aspect-ratio": "^0.2.1",
-    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "clsx": "^1.1.1",
