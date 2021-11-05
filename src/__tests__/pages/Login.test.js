@@ -86,7 +86,6 @@ test('click the login button with valid data', async () => {
 		</AuthContext.Provider>
 	)
 
-
 	await act(async () => {
 		await fireEvent.change(await screen.findByPlaceholderText('Email address'), {target: {value: 'test@testing.com'}})
 		await fireEvent.change(await screen.findByPlaceholderText('Password'), {target: {value: '123456789'}})
@@ -110,7 +109,5 @@ test('click the forgotten password button', async () => {
 		fireEvent.click(await screen.getByText(/forgotten password?/i))
 	})
 
-	// screen.debug()
 	await waitFor(() => expect(value.dispatch).toBeCalledTimes(1))
-
 })
