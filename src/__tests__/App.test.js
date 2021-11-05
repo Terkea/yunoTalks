@@ -26,8 +26,7 @@ describe('localstorage + state', () => {
 	};
 	global.localStorage = localStorageMock;
 	// disable the error since we expect it
-	global.console.error = jest.fn().mockImplementation(() => {
-	})
+	global.console.error = jest.fn().mockImplementation(() => {})
 
 
 	test('initial render with valid structure for localstorage and no state,' +

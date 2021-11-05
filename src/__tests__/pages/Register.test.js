@@ -7,8 +7,6 @@ import {AuthContext} from "../../providers/authProvider";
 import {RightPanelContext} from "../../providers/rightPanelProvider";
 import {ModalContext} from "../../providers/modalProvider";
 import {SearchChatsContext} from "../../providers/searchChatsProvider";
-import Chat from "../../pages/Chat";
-import Home from "../../pages/Home";
 import Login from "../../pages/Login";
 
 afterEach(cleanup)
