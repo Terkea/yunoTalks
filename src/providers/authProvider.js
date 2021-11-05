@@ -108,11 +108,17 @@ const AuthProvider = ({children}) => {
 		// hotfix for the firebase.onAuthStateChanged flickering
 		if (localStorage.getItem('user')) {
 			// set context data
-			let user = JSON.parse(localStorage.getItem('user'))
-			// fetch the profile
-			getProfile(user.account.uid).then((profile) => {
-				dispatch({type: 'LOGIN', payload: {account: user.account, profile}})
-			})
+			try {
+				let user = JSON.parse(localStorage.getItem('user'))
+				// fetch the profile
+				getProfile(user.account.uid).then((profile) => {
+					dispatch({type: 'LOGIN', payload: {account: user.account, profile}})
+				})
+			} catch (e) {
+				signOut().then(() => {
+					window.location.reload(false);
+				})
+			}
 		} else {
 			auth.onAuthStateChanged(user => {
 				if (auth.currentUser) {

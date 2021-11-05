@@ -1,6 +1,7 @@
 #Todo: 
 - change title and icon
 - write automated tests
+- landing page has join whatever today
 
 # Installation
 
