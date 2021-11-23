@@ -1,5 +1,5 @@
 {
-  "name": "undergrad",
+  "name": "yunoTalks",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -7,9 +7,6 @@
     "@heroicons/react": "^1.0.2",
     "@hookform/resolvers": "^2.6.1",
     "@tailwindcss/aspect-ratio": "^0.2.1",
-    "@testing-library/jest-dom": "^5.15.0",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
     "clsx": "^1.1.1",
     "firebase": "^8.6.7",
     "moment": "^2.29.1",
@@ -51,6 +48,9 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
     "@testing-library/react-hooks": "^7.0.2",
     "autoprefixer": "^10.2.6",
     "postcss": "^8.3.4",

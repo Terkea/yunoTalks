@@ -1,5 +1,5 @@
 import Chat from "../../pages/Chat";
-import {render} from "@testing-library/react"
+import {render, waitFor, screen} from "@testing-library/react"
 import {RightPanelContext} from "../../providers/rightPanelProvider";
 import {AuthContext} from "../../providers/authProvider";
 import {ModalContext} from "../../providers/modalProvider";

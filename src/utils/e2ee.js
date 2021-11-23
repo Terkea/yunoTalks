@@ -2,7 +2,6 @@ import * as crypto from 'crypto'
 
 // DOCS: https://nodejs.org/api/crypto.html#crypto_crypto_createecdh_curvename
 
-// SOURCE: https://gist.github.com/siwalikm/8311cf0a287b98ef67c73c1b03b47154
 // DOCS: https://nodejs.org/api/crypto.html#crypto_crypto_createcipheriv_algorithm_key_iv_options
 // openssl list -cipher-algorithms
 // will display the available cipher algorithms.

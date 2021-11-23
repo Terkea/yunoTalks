@@ -20,12 +20,12 @@ const Home = () => {
 							It's happening now
 						</div>
 						<div className="text-4xl lg:text-6xl text-primary ">
-							Join WHATEVER today
+							Join yunoTalks today
 						</div>
-						<div className="text-lg mt-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Architecto
-							dolorum eaque enim, ipsa molestias necessitatibus officia. Adipisci aliquam aut dicta
-							doloribus, eos excepturi explicabo incidunt molestiae recusandae. Dolorem, ducimus, nam.
+						<div className="text-lg mt-5">
+							<b>yunoTalks</b> is a web application that allows users to exchange real-time communications
+							in a safe environment utilizing an end-to-end encryption system while gathering no
+							identifiable private data from its users in order to maintain the user's online anonymity.
 						</div>
 					</div>
 					{/* BUTTONS */}

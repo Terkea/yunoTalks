@@ -1,8 +1,15 @@
-#Todo: 
-- change title and icon
-- write automated tests
-- landing page has join whatever today
+<b>yunoTalks</b> is a web application that allows users to exchange real-time
+communications in a safe environment utilizing an end-to-end encryption 
+system while gathering no identifiable private data from its users in order 
+to maintain the user's online anonymity. The artefact was developed using 
+React, Tailwind CSS and Firebase for user authentication, file storage, database, 
+and webhosting. A combination of ECDH and ASE was employed for the artifact's
+end-to-end encryption. In terms of testing, the application was tested against 
+various browsers to ensure cross compatibility, as well as unit tests that 
+included a combination of white box, grey box, and black box testing, as well 
+as penetration tests.
 
+![demo](./images/demo.gif)
 # Installation
 
 ## Option 1
